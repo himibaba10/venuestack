@@ -13,6 +13,13 @@ define( 'VENUESTACK_VERSION', wp_get_theme()->get( 'Version' ) ?: '0.1.0' );
  * Enqueue built theme assets when present.
  */
 function venuestack_enqueue_assets(): void {
+	wp_enqueue_style(
+		'venuestack-style',
+		get_stylesheet_uri(),
+		array(),
+		VENUESTACK_VERSION
+	);
+
 	$asset_file = get_template_directory() . '/build/index.asset.php';
 
 	if ( ! file_exists( $asset_file ) ) {
@@ -34,7 +41,7 @@ function venuestack_enqueue_assets(): void {
 		wp_enqueue_style(
 			'venuestack-theme',
 			get_template_directory_uri() . '/build/index.css',
-			array(),
+			array( 'venuestack-style' ),
 			$asset['version'] ?? VENUESTACK_VERSION
 		);
 	}

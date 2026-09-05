@@ -14,3 +14,16 @@ Text Domain: venuestack
 Tags: 
 */
 
+/* Single space: full-bleed hero plane */
+.venuestack-space-hero .wp-block-post-featured-image {
+	margin: 0;
+}
+
+.venuestack-space-hero .wp-block-post-featured-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-height: min(78vh, 52rem);
+	object-fit: cover;
+}
+

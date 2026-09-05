@@ -354,5 +354,12 @@
 			"area": "footer",
 			"name": "footer"
 		}
+	],
+	"customTemplates": [
+		{
+			"name": "single-venue_space",
+			"title": "Single Space",
+			"postTypes": [ "venue_space" ]
+		}
 	]
 }
