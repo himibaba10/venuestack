@@ -10,39 +10,59 @@
 			"defaultPalette": false,
 			"palette": [
 				{
-					"slug": "primary",
-					"name": "Primary",
-					"color": "#2C3E50"
+					"slug": "ink",
+					"name": "Ink",
+					"color": "#211D1B"
 				},
 				{
-					"slug": "accent",
-					"name": "Accent",
-					"color": "#D4AF37"
+					"slug": "plaster",
+					"name": "Plaster",
+					"color": "#F2ECE3"
 				},
 				{
-					"slug": "background",
-					"name": "Background",
-					"color": "#FDFDFD"
+					"slug": "stone",
+					"name": "Stone",
+					"color": "#E4DACB"
 				},
 				{
-					"slug": "surface",
-					"name": "Surface",
-					"color": "#F4F5F7"
+					"slug": "brass",
+					"name": "Brass",
+					"color": "#A6763D"
 				},
 				{
-					"slug": "contrast",
-					"name": "Contrast",
-					"color": "#1A252F"
+					"slug": "evergreen",
+					"name": "Evergreen",
+					"color": "#2F3B34"
 				},
 				{
-					"slug": "muted",
-					"name": "Muted",
-					"color": "#5D6D7E"
+					"slug": "ember",
+					"name": "Ember",
+					"color": "#B4552F"
+				}
+			],
+			"gradients": [
+				{
+					"slug": "dusk",
+					"name": "Dusk",
+					"gradient": "linear-gradient(135deg, #2F3B34 0%, #211D1B 100%)"
 				},
 				{
-					"slug": "base",
-					"name": "Base",
-					"color": "#FDFDFD"
+					"slug": "brass-sheen",
+					"name": "Brass Sheen",
+					"gradient": "linear-gradient(90deg, #A6763D 0%, #C9A06B 50%, #A6763D 100%)"
+				}
+			]
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"radiusSizes": [
+				{
+					"slug": "none",
+					"name": "None",
+					"size": "0"
 				}
 			]
 		},
@@ -107,7 +127,7 @@
 				{
 					"slug": "medium",
 					"name": "Medium",
-					"size": "1rem",
+					"size": "1.0625rem",
 					"fluid": {
 						"min": "1rem",
 						"max": "1.125rem"
@@ -116,59 +136,59 @@
 				{
 					"slug": "large",
 					"name": "Large",
-					"size": "1.25rem",
+					"size": "1.375rem",
 					"fluid": {
-						"min": "1.125rem",
-						"max": "1.375rem"
+						"min": "1.1875rem",
+						"max": "1.5rem"
 					}
 				},
 				{
 					"slug": "x-large",
 					"name": "Extra Large",
-					"size": "1.75rem",
+					"size": "2rem",
 					"fluid": {
-						"min": "1.5rem",
-						"max": "2.125rem"
+						"min": "1.625rem",
+						"max": "2.375rem"
 					}
 				},
 				{
 					"slug": "xx-large",
 					"name": "2X Large",
-					"size": "2.5rem",
+					"size": "3rem",
 					"fluid": {
-						"min": "2rem",
-						"max": "3.25rem"
+						"min": "2.25rem",
+						"max": "3.75rem"
 					}
 				},
 				{
 					"slug": "xxx-large",
 					"name": "3X Large",
-					"size": "3.5rem",
+					"size": "4.5rem",
 					"fluid": {
-						"min": "2.5rem",
-						"max": "4.5rem"
+						"min": "2.75rem",
+						"max": "5.5rem"
 					}
 				}
 			],
 			"fontFamilies": [
 				{
-					"name": "Inter",
-					"slug": "inter",
-					"fontFamily": "\"Inter\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+					"name": "Work Sans",
+					"slug": "work-sans",
+					"fontFamily": "\"Work Sans\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
 					"fontFace": [
 						{
-							"fontFamily": "Inter",
+							"fontFamily": "Work Sans",
 							"fontWeight": "100 900",
 							"fontStyle": "normal",
 							"fontDisplay": "swap",
-							"src": [ "file:./assets/fonts/inter/inter-latin-wght-normal.woff2" ]
+							"src": [ "file:./assets/fonts/work-sans/work-sans-latin-wght-normal.woff2" ]
 						},
 						{
-							"fontFamily": "Inter",
+							"fontFamily": "Work Sans",
 							"fontWeight": "100 900",
 							"fontStyle": "normal",
 							"fontDisplay": "swap",
-							"src": [ "file:./assets/fonts/inter/inter-latin-ext-wght-normal.woff2" ]
+							"src": [ "file:./assets/fonts/work-sans/work-sans-latin-ext-wght-normal.woff2" ]
 						}
 					]
 				},
@@ -198,8 +218,8 @@
 	},
 	"styles": {
 		"color": {
-			"background": "var:preset|color|background",
-			"text": "var:preset|color|primary"
+			"background": "var:preset|color|plaster",
+			"text": "var:preset|color|ink"
 		},
 		"spacing": {
 			"blockGap": "var:preset|spacing|40",
@@ -211,89 +231,93 @@
 			}
 		},
 		"typography": {
-			"fontFamily": "var:preset|font-family|inter",
+			"fontFamily": "var:preset|font-family|work-sans",
 			"fontSize": "var:preset|font-size|medium",
 			"fontWeight": "400",
-			"lineHeight": "1.6"
+			"lineHeight": "1.65"
 		},
 		"elements": {
 			"heading": {
 				"typography": {
 					"fontFamily": "var:preset|font-family|playfair-display",
 					"fontWeight": "600",
-					"lineHeight": "1.2"
+					"lineHeight": "1.15"
 				},
 				"color": {
-					"text": "var:preset|color|primary"
+					"text": "var:preset|color|ink"
 				}
 			},
 			"h1": {
 				"typography": {
 					"fontSize": "var:preset|font-size|xxx-large",
 					"fontWeight": "700",
-					"lineHeight": "1.1"
+					"letterSpacing": "-0.025em",
+					"lineHeight": "1.05"
 				}
 			},
 			"h2": {
 				"typography": {
 					"fontSize": "var:preset|font-size|xx-large",
-					"fontWeight": "600"
+					"fontWeight": "600",
+					"letterSpacing": "-0.02em",
+					"lineHeight": "1.1"
 				}
 			},
 			"h3": {
 				"typography": {
 					"fontSize": "var:preset|font-size|x-large",
-					"fontWeight": "600"
+					"fontWeight": "600",
+					"letterSpacing": "-0.015em"
 				}
 			},
 			"h4": {
 				"typography": {
 					"fontSize": "var:preset|font-size|large",
-					"fontWeight": "600"
+					"fontWeight": "600",
+					"letterSpacing": "-0.01em"
 				}
 			},
 			"h5": {
 				"typography": {
-					"fontFamily": "var:preset|font-family|inter",
+					"fontFamily": "var:preset|font-family|work-sans",
 					"fontSize": "var:preset|font-size|medium",
-					"fontWeight": "600",
-					"letterSpacing": "0.02em",
-					"textTransform": "uppercase"
+					"fontWeight": "500",
+					"letterSpacing": "0",
+					"lineHeight": "1.4"
 				}
 			},
 			"h6": {
 				"typography": {
-					"fontFamily": "var:preset|font-family|inter",
+					"fontFamily": "var:preset|font-family|work-sans",
 					"fontSize": "var:preset|font-size|small",
-					"fontWeight": "600",
-					"letterSpacing": "0.04em",
-					"textTransform": "uppercase"
+					"fontWeight": "500",
+					"letterSpacing": "0",
+					"lineHeight": "1.4"
 				}
 			},
 			"link": {
 				"color": {
-					"text": "var:preset|color|primary"
+					"text": "var:preset|color|ink"
 				},
 				":hover": {
 					"color": {
-						"text": "var:preset|color|accent"
+						"text": "var:preset|color|ember"
 					}
 				}
 			},
 			"button": {
 				"color": {
-					"background": "var:preset|color|primary",
-					"text": "var:preset|color|background"
+					"background": "var:preset|color|brass",
+					"text": "var:preset|color|plaster"
 				},
 				"typography": {
-					"fontFamily": "var:preset|font-family|inter",
-					"fontSize": "var:preset|font-size|small",
-					"fontWeight": "600",
-					"letterSpacing": "0.02em",
-					"textTransform": "uppercase"
+					"fontFamily": "var:preset|font-family|work-sans",
+					"fontSize": "var:preset|font-size|medium",
+					"fontWeight": "500",
+					"letterSpacing": "0"
 				},
 				"border": {
-					"radius": "2px"
+					"radius": "0"
 				},
 				"spacing": {
 					"padding": {
@@ -305,17 +329,17 @@
 				},
 				":hover": {
 					"color": {
-						"background": "var:preset|color|contrast",
-						"text": "var:preset|color|background"
+						"background": "var:preset|color|evergreen",
+						"text": "var:preset|color|plaster"
 					}
 				}
 			},
 			"caption": {
 				"color": {
-					"text": "var:preset|color|muted"
+					"text": "var:preset|color|evergreen"
 				},
 				"typography": {
-					"fontFamily": "var:preset|font-family|inter",
+					"fontFamily": "var:preset|font-family|work-sans",
 					"fontSize": "var:preset|font-size|small"
 				}
 			}
