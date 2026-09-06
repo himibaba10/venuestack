@@ -110,6 +110,26 @@ export function registerVenueStackVariations() {
 			hasClass( blockAttributes.className, 'is-style-section' ),
 	} );
 
+	registerBlockVariation( 'core/heading', {
+		name: 'venuestack-heading-card',
+		title: __( 'Card heading', 'venuestack' ),
+		description: __(
+			'Compact card title — Card heading style.',
+			'venuestack'
+		),
+		category: 'text',
+		icon: 'heading',
+		keywords: [ 'card', 'title', 'h3' ],
+		attributes: {
+			level: 3,
+			className: 'is-style-card',
+			content: '',
+		},
+		scope: [ 'inserter', 'block', 'transform' ],
+		isActive: ( blockAttributes ) =>
+			hasClass( blockAttributes.className, 'is-style-card' ),
+	} );
+
 	registerBlockVariation( 'core/button', {
 		name: 'venuestack-button-primary',
 		title: __( 'Primary button', 'venuestack' ),

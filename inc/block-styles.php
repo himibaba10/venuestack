@@ -32,6 +32,7 @@ function venuestack_register_block_styles(): void {
 	$heading_styles = array(
 		'hero'    => __( 'Hero', 'venuestack' ),
 		'section' => __( 'Section', 'venuestack' ),
+		'card'    => __( 'Card', 'venuestack' ),
 	);
 
 	foreach ( $heading_styles as $name => $label ) {
@@ -43,5 +44,13 @@ function venuestack_register_block_styles(): void {
 			)
 		);
 	}
+
+	register_block_style(
+		'core/post-title',
+		array(
+			'name'  => 'card',
+			'label' => __( 'Card', 'venuestack' ),
+		)
+	);
 }
 add_action( 'init', 'venuestack_register_block_styles' );

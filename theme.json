@@ -82,6 +82,11 @@
 					"color": "#D4CFC8",
 					"name": "Plaster muted",
 					"slug": "plaster-muted"
+				},
+				{
+					"color": "#D5CFC7",
+					"name": "Rule",
+					"slug": "rule"
 				}
 			]
 		},

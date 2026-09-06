@@ -1,9 +1,9 @@
 /**
- * Homepage styles — only what the block editor cannot set.
+ * Homepage styles — only what the block editor cannot set cleanly.
  *
- * Editor owns: colors, solid backgrounds, borders (desktop), padding,
- * margins, gaps, typography. This file keeps decorative patterns,
- * responsive divider reflow, icon SVG boxing, media overlays, motion.
+ * Editor owns: colors, borders (via Rule token), spacing, layout.
+ * This file keeps decorative patterns, mobile divider reflow, icon
+ * boxing, media overlays, and motion.
  */
 
 /* —— Hero —— */
@@ -49,14 +49,13 @@
 @media (max-width: 781px) {
   .venuestack-home-stats__cell {
     border-right: none !important;
-    border-bottom: 1px solid
-      color-mix(in srgb, var(--wp--preset--color--ink) 14%, transparent);
+    border-bottom: 1px solid var(--wp--preset--color--rule) !important;
     padding-block: var(--wp--preset--spacing--30) !important;
   }
 
   .venuestack-home-stats__cell:nth-child(3),
   .venuestack-home-stats__cell:nth-child(4) {
-    border-bottom: none;
+    border-bottom: none !important;
   }
 }
 
@@ -304,12 +303,6 @@
     black 80%,
     transparent
   );
-}
-
-.venuestack-home-step {
-  border-top: 1px solid
-    color-mix(in srgb, var(--wp--preset--color--ink) 20%, transparent);
-  padding-top: var(--wp--preset--spacing--30);
 }
 
 .venuestack-home-step__n {

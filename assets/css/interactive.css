@@ -68,6 +68,16 @@ p.is-style-display {
 	line-height: 1.08;
 }
 
+.wp-block-heading.is-style-card,
+.wp-block-post-title.is-style-card {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--playfair-display);
+	font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
+	font-weight: 600;
+	letter-spacing: -0.015em;
+	line-height: 1.15;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	.wp-element-button,
 	.wp-block-button__link,

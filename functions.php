@@ -13,6 +13,7 @@ $venuestack_inc = get_template_directory() . "/inc";
 
 require_once "$venuestack_inc/icons.php";
 require_once "$venuestack_inc/logo.php";
+require_once "$venuestack_inc/hero-media.php";
 require_once "$venuestack_inc/synced-patterns.php";
 require_once "$venuestack_inc/block-styles.php";
 require_once "$venuestack_inc/editor-compat.php";
