@@ -75,6 +75,9 @@ export function registerVenueStackVariations() {
 					radius: '0px',
 					width: '1px',
 				},
+				color: {
+					background: 'transparent',
+				},
 			},
 		},
 		scope: [ 'inserter', 'block', 'transform' ],
@@ -100,6 +103,9 @@ export function registerVenueStackVariations() {
 				border: {
 					radius: '0px',
 					width: '1px',
+				},
+				color: {
+					background: 'transparent',
 				},
 			},
 		},

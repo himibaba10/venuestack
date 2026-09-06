@@ -249,7 +249,11 @@
 				}
 			]
 		},
-		"useRootPaddingAwareAlignments": true
+		"useRootPaddingAwareAlignments": true,
+		"viewport": {
+			"mobile": "480px",
+			"tablet": "782px"
+		}
 	},
 	"styles": {
 		"color": {

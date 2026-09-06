@@ -1,31 +1,23 @@
 /**
  * Homepage styles — only what the block editor cannot set.
- * Colors, solid backgrounds, layout widths, block gaps, and the hero
- * photo live on block attributes (Cover / Groups / Columns).
+ *
+ * Editor owns: colors, solid backgrounds, borders (desktop), padding,
+ * margins, gaps, typography. This file keeps decorative patterns,
+ * responsive divider reflow, icon SVG boxing, media overlays, motion.
  */
 
-/* —— Hero (Cover owns image, overlay, min-height, padding) —— */
+/* —— Hero —— */
 .venuestack-home-hero.wp-block-cover {
-  margin: 0 !important;
   overflow: hidden;
 }
 
-.venuestack-home-hero .wp-block-heading {
-  font-size: clamp(2.75rem, 1.4rem + 6vw, 5.5rem);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-}
-
+/* Single-line max width; parent group is wider for the H1 */
 .venuestack-home-hero__lede,
 .venuestack-home-hero__lede p {
   max-width: 36rem;
-  line-height: 1.6;
 }
 
-.venuestack-home-hero .is-style-outline .wp-block-button__link {
-  background: transparent !important;
-}
-
+/* Hero outline hover differs from global outline (evergreen, not brass) */
 .venuestack-home-hero .is-style-outline .wp-block-button__link:hover,
 .venuestack-home-hero .is-style-outline .wp-block-button__link:focus {
   background: var(--wp--preset--color--evergreen) !important;
@@ -33,7 +25,7 @@
   color: var(--wp--preset--color--plaster) !important;
 }
 
-/* —— Stats —— */
+/* —— Stats: decorative wash + mobile divider reflow —— */
 .venuestack-home-stats {
   position: relative;
   overflow: hidden;
@@ -60,40 +52,12 @@
   width: 100%;
 }
 
-.venuestack-home-stats__cell {
-  text-align: center;
-  padding-inline: var(--wp--preset--spacing--20);
-  border-right: 1px solid
-    color-mix(in srgb, var(--wp--preset--color--ink) 14%, transparent);
-}
-
-.venuestack-home-stats__cell:last-child {
-  border-right: none;
-}
-
-.venuestack-home-stats__value {
-  margin: 0;
-  font-family: var(--wp--preset--font-family--playfair-display);
-  font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.25rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-}
-
-.venuestack-home-stats__label {
-  margin: 0.5rem 0 0;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
 @media (max-width: 781px) {
   .venuestack-home-stats__cell {
-    border-right: none;
+    border-right: none !important;
     border-bottom: 1px solid
       color-mix(in srgb, var(--wp--preset--color--ink) 14%, transparent);
-    padding-block: var(--wp--preset--spacing--30);
+    padding-block: var(--wp--preset--spacing--30) !important;
   }
 
   .venuestack-home-stats__cell:nth-child(3),
@@ -102,7 +66,7 @@
   }
 }
 
-/* —— Section shell —— */
+/* —— Section shell (stacking for decorative ::before/::after) —— */
 .venuestack-home-section {
   position: relative;
   overflow: hidden;
@@ -114,11 +78,7 @@
   width: 100%;
 }
 
-.venuestack-home-section .wp-block-heading {
-  letter-spacing: -0.02em;
-}
-
-/* Capabilities — decorative wash + seam color behind editor 1px gaps */
+/* Capabilities — decorative wash behind the grid */
 .venuestack-home-capabilities::before {
   content: '';
   position: absolute;
@@ -153,81 +113,15 @@
   );
 }
 
-.venuestack-home-capabilities
-  .venuestack-home-section__inner
-  > .venuestack-home-reveal
-  .wp-block-heading {
-  font-size: clamp(2.1rem, 1.3rem + 3.4vw, 3.5rem);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-}
-
-.venuestack-home-cap-board {
-  margin: 0;
-}
-
-.venuestack-home-cap-grid {
-  background: color-mix(
-    in srgb,
-    var(--wp--preset--color--ink) 14%,
-    transparent
-  );
-  margin: 0 !important;
-}
-
-.venuestack-home-cap {
-  margin: 0;
-}
-
-.venuestack-home-cap.is-layout-flow > * {
-  margin-block-start: 0 !important;
-  margin-block-end: 0 !important;
-}
-
-.venuestack-home-cap .wp-block-icon,
-.venuestack-home-cap__icon.wp-block-icon {
-  display: block;
-  flex-shrink: 0;
-  box-sizing: border-box;
-  width: 1.75rem !important;
-  max-width: 1.75rem;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 0;
-  color: var(--wp--preset--color--brass);
-}
-
+/* Icon SVGs: fill paths (WP Icons API strips stroke) */
 .venuestack-home-cap .wp-block-icon svg {
   display: block;
-  width: 1.75rem !important;
-  height: 1.75rem !important;
   overflow: visible;
   fill: currentColor;
   stroke: none;
 }
 
-.venuestack-home-cap .wp-block-heading {
-  margin: var(--wp--preset--spacing--30) 0 0 !important;
-  font-family: var(--wp--preset--font-family--playfair-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-}
-
-.venuestack-home-cap > p {
-  margin: var(--wp--preset--spacing--20) 0 0 !important;
-  font-size: 0.875rem;
-  line-height: 1.625;
-}
-
-@media (max-width: 781px) {
-  .venuestack-home-cap-grid {
-    flex-direction: column;
-  }
-}
-
-/* Spaces directory */
+/* Spaces directory — decorative wash */
 .venuestack-home-spaces::before {
   content: '';
   position: absolute;
@@ -263,26 +157,21 @@
   );
 }
 
-.venuestack-home-spaces__link {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.venuestack-home-spaces__link a {
+  color: inherit;
   text-decoration: none;
 }
 
-.venuestack-home-spaces__link:hover,
-.venuestack-home-spaces__link:focus {
+.venuestack-home-spaces__link a:hover,
+.venuestack-home-spaces__link a:focus {
   color: var(--wp--preset--color--ember);
 }
 
 .venuestack-home-space-card {
   height: 100%;
-  margin: 0;
 }
 
 .venuestack-home-space-card .wp-block-post-featured-image {
-  margin: 0;
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
@@ -299,12 +188,6 @@
   transform: scale(1.05);
 }
 
-.venuestack-home-space-card .wp-block-post-title {
-  margin: 0;
-  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
-  line-height: 1.15;
-}
-
 .venuestack-home-space-card .wp-block-post-title a {
   text-decoration: none;
 }
@@ -313,19 +196,13 @@
   color: var(--wp--preset--color--ember);
 }
 
+/* Space-type badge: absolute overlay on the image */
 .venuestack-home-space-type {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
   display: inline-flex;
-  margin: 0;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  line-height: 1.2;
 }
 
 .venuestack-home-space-type a {
@@ -342,27 +219,9 @@
   position: relative;
 }
 
-.venuestack-home-space-meta {
-  width: 100%;
-  font-size: var(--wp--preset--font-size--small);
-}
-
+.venuestack-home-space-meta,
 .venuestack-home-space-meta > .wp-block-group {
   width: 100%;
-}
-
-.venuestack-home-space-meta p {
-  margin: 0;
-}
-
-.venuestack-home-space-meta p:last-child {
-  font-weight: 500;
-  text-align: right;
-}
-
-.venuestack-home-space-meta .is-rate,
-.venuestack-home-space-meta p.is-rate {
-  font-weight: 600;
 }
 
 @media (max-width: 1100px) {
@@ -377,7 +236,7 @@
   }
 }
 
-/* Steps */
+/* Steps — decorative wash */
 .venuestack-home-steps::before {
   content: '';
   position: absolute;
@@ -402,32 +261,14 @@
   );
 }
 
-.venuestack-home-step {
-  margin: 0;
-}
-
 .venuestack-home-step__n {
   display: block;
-  font-family: var(--wp--preset--font-family--playfair-display);
-  font-size: 1.875rem;
-  line-height: 1;
 }
 
-.venuestack-home-step .wp-block-heading {
-  margin: var(--wp--preset--spacing--20) 0 0;
-  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
-}
-
-.venuestack-home-step p:not(.venuestack-home-step__n) {
-  margin: 0.5rem 0 0;
-  line-height: 1.65;
-}
-
-/* CTA */
+/* CTA — decorative wash; outline hover uses global interactive.css */
 .venuestack-home-cta {
   position: relative;
   overflow: hidden;
-  text-align: center;
 }
 
 .venuestack-home-cta::before {
@@ -455,18 +296,7 @@
   position: relative;
 }
 
-.venuestack-home-cta .is-style-outline .wp-block-button__link {
-  background: transparent !important;
-}
-
-.venuestack-home-cta .is-style-outline .wp-block-button__link:hover,
-.venuestack-home-cta .is-style-outline .wp-block-button__link:focus {
-  background: var(--wp--preset--color--brass) !important;
-  color: var(--wp--preset--color--plaster) !important;
-}
-
-/* Reveal — motion animates after JS adds html.venuestack-reveal-enabled.
-   Site Editor / no-JS keep content visible. */
+/* Reveal motion */
 .venuestack-home-reveal {
   opacity: 1;
   transform: none;
