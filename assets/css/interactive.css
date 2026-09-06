@@ -49,8 +49,9 @@ p.is-style-display {
 	line-height: 1.15;
 }
 
-/* —— Heading block styles (Styles panel) —— */
-.wp-block-heading.is-style-hero {
+/* —— Heading / post-title / post-excerpt / post-terms styles —— */
+.wp-block-heading.is-style-hero,
+.wp-block-post-title.is-style-hero {
 	margin: 0;
 	font-family: var(--wp--preset--font-family--playfair-display);
 	font-size: clamp(2.75rem, 1.4rem + 6vw, 5.5rem);
@@ -78,13 +79,69 @@ p.is-style-display {
 	line-height: 1.15;
 }
 
+.wp-block-post-excerpt.is-style-lede,
+.wp-block-post-excerpt.is-style-lede .wp-block-post-excerpt__excerpt {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+.wp-block-post-terms.is-style-eyebrow {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+	line-height: 1.3;
+}
+
+.wp-block-post-terms.is-style-eyebrow a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wp-block-post-terms.is-style-eyebrow .wp-block-post-terms__separator {
+	display: none;
+}
+
+.wp-block-post-terms.is-style-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	align-items: stretch;
+	margin: 0;
+}
+
+.wp-block-post-terms.is-style-chips a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.55rem 0.95rem;
+	background: var(--wp--preset--color--plaster);
+	color: var(--wp--preset--color--ink);
+	border: 1px solid var(--wp--preset--color--rule);
+	border-radius: 0;
+	text-decoration: none;
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+.wp-block-post-terms.is-style-chips .wp-block-post-terms__separator {
+	display: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	.wp-element-button,
 	.wp-block-button__link,
 	.venuestack-primary-nav a,
 	.venuestack-brand__title a,
 	.venuestack-site-footer a,
-	.venuestack-space-amenities__list a {
+	.wp-block-post-terms.is-style-chips a {
 		transition:
 			background-color 0.2s ease,
 			color 0.2s ease,
@@ -179,10 +236,14 @@ p.is-style-display {
 	color: var(--wp--preset--color--brass) !important;
 }
 
-/* —— Amenity chips —— */
-.venuestack-space-amenities__list a:hover,
-.venuestack-space-amenities__list a:focus {
-	background: color-mix(in srgb, var(--wp--preset--color--brass) 14%, var(--wp--preset--color--plaster));
+/* —— Amenity chips (post-terms Chips style) —— */
+.wp-block-post-terms.is-style-chips a:hover,
+.wp-block-post-terms.is-style-chips a:focus {
+	background: color-mix(
+		in srgb,
+		var(--wp--preset--color--brass) 14%,
+		var(--wp--preset--color--plaster)
+	);
 	border-color: var(--wp--preset--color--brass);
 	color: var(--wp--preset--color--ink);
 	box-shadow: inset 0 0 0 1px var(--wp--preset--color--brass);
@@ -190,7 +251,7 @@ p.is-style-display {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	.venuestack-space-amenities__list a:hover {
+	.wp-block-post-terms.is-style-chips a:hover {
 		transform: translateY(-1px);
 	}
 }
@@ -201,7 +262,7 @@ p.is-style-display {
 .venuestack-primary-nav a:focus-visible,
 .venuestack-brand__title a:focus-visible,
 .venuestack-site-footer a:focus-visible,
-.venuestack-space-amenities__list a:focus-visible {
+.wp-block-post-terms.is-style-chips a:focus-visible {
 	outline: 2px solid var(--wp--preset--color--brass);
 	outline-offset: 3px;
 }

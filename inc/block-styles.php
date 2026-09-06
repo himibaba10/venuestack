@@ -52,5 +52,37 @@ function venuestack_register_block_styles(): void {
 			'label' => __( 'Card', 'venuestack' ),
 		)
 	);
+
+	register_block_style(
+		'core/post-title',
+		array(
+			'name'  => 'hero',
+			'label' => __( 'Hero', 'venuestack' ),
+		)
+	);
+
+	register_block_style(
+		'core/post-excerpt',
+		array(
+			'name'  => 'lede',
+			'label' => __( 'Lede', 'venuestack' ),
+		)
+	);
+
+	register_block_style(
+		'core/post-terms',
+		array(
+			'name'  => 'eyebrow',
+			'label' => __( 'Eyebrow', 'venuestack' ),
+		)
+	);
+
+	register_block_style(
+		'core/post-terms',
+		array(
+			'name'  => 'chips',
+			'label' => __( 'Chips', 'venuestack' ),
+		)
+	);
 }
 add_action( 'init', 'venuestack_register_block_styles' );

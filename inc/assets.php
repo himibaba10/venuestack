@@ -102,8 +102,8 @@ function venuestack_enqueue_assets(): void
 		VENUESTACK_VERSION
 	);
 
-	// Homepage marketing: motion scroll reveals (architecture.md).
-	if (!is_front_page()) {
+	// Marketing motion: homepage + single space.
+	if ( ! is_front_page() && ! is_singular( 'venue_space' ) ) {
 		return;
 	}
 

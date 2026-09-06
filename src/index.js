@@ -11,7 +11,8 @@ import { initHomeReveals } from './frontend/home-reveals';
 const boot = () => {
 	if (
 		document.body?.classList.contains( 'home' ) ||
-		document.querySelector( '.venuestack-home' )
+		document.querySelector( '.venuestack-home' ) ||
+		document.querySelector( '.venuestack-space' )
 	) {
 		initHomeReveals();
 	}
