@@ -118,6 +118,30 @@ function venuestack_enqueue_block_assets(): void {
 add_action( 'enqueue_block_assets', 'venuestack_enqueue_block_assets' );
 
 /**
+ * Block editor scripts (variations for eyebrow + buttons).
+ */
+function venuestack_enqueue_block_editor_assets(): void {
+	$asset_file = get_template_directory() . '/build/editor.asset.php';
+
+	if ( ! file_exists( $asset_file ) ) {
+		return;
+	}
+
+	$asset = include $asset_file;
+
+	wp_enqueue_script(
+		'venuestack-editor',
+		get_template_directory_uri() . '/build/editor.js',
+		$asset['dependencies'] ?? array(),
+		$asset['version'] ?? VENUESTACK_VERSION,
+		true
+	);
+
+	wp_set_script_translations( 'venuestack-editor', 'venuestack' );
+}
+add_action( 'enqueue_block_editor_assets', 'venuestack_enqueue_block_editor_assets' );
+
+/**
  * Front-end only scripts (and optional built assets).
  */
 function venuestack_enqueue_assets(): void {

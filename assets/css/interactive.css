@@ -2,6 +2,16 @@
  * Hover / focus affordances for interactive UI.
  */
 
+/* —— Eyebrow (paragraph variation: venuestack-eyebrow) —— */
+.venuestack-eyebrow {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	.wp-element-button,
 	.wp-block-button__link,
