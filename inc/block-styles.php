@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Register paragraph block styles for consistent marketing copy.
+ * Register paragraph + heading block styles for marketing copy.
  */
 function venuestack_register_block_styles(): void {
 	$paragraph_styles = array(
@@ -22,6 +22,21 @@ function venuestack_register_block_styles(): void {
 	foreach ( $paragraph_styles as $name => $label ) {
 		register_block_style(
 			'core/paragraph',
+			array(
+				'name'  => $name,
+				'label' => $label,
+			)
+		);
+	}
+
+	$heading_styles = array(
+		'hero'    => __( 'Hero', 'venuestack' ),
+		'section' => __( 'Section', 'venuestack' ),
+	);
+
+	foreach ( $heading_styles as $name => $label ) {
+		register_block_style(
+			'core/heading',
 			array(
 				'name'  => $name,
 				'label' => $label,

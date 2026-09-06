@@ -70,6 +70,46 @@ export function registerVenueStackVariations() {
 			hasClass( blockAttributes.className, 'is-style-body' ),
 	} );
 
+	registerBlockVariation( 'core/heading', {
+		name: 'venuestack-heading-hero',
+		title: __( 'Hero heading', 'venuestack' ),
+		description: __(
+			'Page-opening display title — Hero heading style.',
+			'venuestack'
+		),
+		category: 'text',
+		icon: 'heading',
+		keywords: [ 'hero', 'display', 'title', 'h1' ],
+		attributes: {
+			level: 1,
+			className: 'is-style-hero',
+			content: '',
+		},
+		scope: [ 'inserter', 'block', 'transform' ],
+		isActive: ( blockAttributes ) =>
+			hasClass( blockAttributes.className, 'is-style-hero' ),
+	} );
+
+	registerBlockVariation( 'core/heading', {
+		name: 'venuestack-heading-section',
+		title: __( 'Section heading', 'venuestack' ),
+		description: __(
+			'Section title under an eyebrow — Section heading style.',
+			'venuestack'
+		),
+		category: 'text',
+		icon: 'heading',
+		keywords: [ 'section', 'title', 'h2' ],
+		attributes: {
+			level: 2,
+			className: 'is-style-section',
+			content: '',
+		},
+		scope: [ 'inserter', 'block', 'transform' ],
+		isActive: ( blockAttributes ) =>
+			hasClass( blockAttributes.className, 'is-style-section' ),
+	} );
+
 	registerBlockVariation( 'core/button', {
 		name: 'venuestack-button-primary',
 		title: __( 'Primary button', 'venuestack' ),

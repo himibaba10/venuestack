@@ -49,6 +49,25 @@ p.is-style-display {
 	line-height: 1.15;
 }
 
+/* —— Heading block styles (Styles panel) —— */
+.wp-block-heading.is-style-hero {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--playfair-display);
+	font-size: clamp(2.75rem, 1.4rem + 6vw, 5.5rem);
+	font-weight: 700;
+	letter-spacing: -0.025em;
+	line-height: 1.02;
+}
+
+.wp-block-heading.is-style-section {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--playfair-display);
+	font-size: clamp(2.1rem, 1.3rem + 3.4vw, 3.5rem);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	line-height: 1.08;
+}
+
 @media (prefers-reduced-motion: no-preference) {
 	.wp-element-button,
 	.wp-block-button__link,

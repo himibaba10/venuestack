@@ -9,8 +9,8 @@
 ?>
 <!-- wp:group {"align":"full","className":"venuestack-home-section venuestack-home-cta","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"evergreen","textColor":"plaster","layout":{"type":"constrained","contentSize":"28rem"}} -->
 <div class="wp-block-group alignfull venuestack-home-section venuestack-home-cta has-plaster-color has-evergreen-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"align":"full","className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"810px"}} -->
-<div class="wp-block-group alignfull venuestack-home-reveal"><!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"textColor":"plaster"} -->
-<h2 class="wp-block-heading has-text-align-center has-plaster-color has-text-color">Hold your date before someone else does.</h2>
+<div class="wp-block-group alignfull venuestack-home-reveal"><!-- wp:heading {"className":"is-style-section","style":{"typography":{"textAlign":"center"}},"textColor":"plaster"} -->
+<h2 class="wp-block-heading has-text-align-center is-style-section has-plaster-color has-text-color">Hold your date before someone else does.</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","className":"is-style-lede","textColor":"plaster-muted"} -->
