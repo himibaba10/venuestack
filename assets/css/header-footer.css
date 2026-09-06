@@ -34,6 +34,18 @@
 	white-space: nowrap;
 }
 
+/* Hide WC customer chrome — VenueStack uses WC as headless payments. */
+.venuestack-site-header .wc-block-mini-cart,
+.venuestack-site-header .widget_shopping_cart,
+.venuestack-site-header .woocommerce-mini-cart,
+.venuestack-site-header a[href*="my-account"],
+.venuestack-site-header .wp-block-woocommerce-customer-account,
+.venuestack-site-header .wc-block-customer-account,
+body .wp-block-woocommerce-mini-cart,
+body .wp-block-woocommerce-customer-account {
+	display: none !important;
+}
+
 @media (max-width: 781px) {
 	.venuestack-brand__tagline {
 		display: none;

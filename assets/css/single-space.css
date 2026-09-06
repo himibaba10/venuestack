@@ -2,14 +2,14 @@
  * Single venue_space template styles.
  */
 
-/* Hide WC customer chrome on space singles (headless payments). */
-.single-venue_space .wc-block-mini-cart,
-.single-venue_space .widget_shopping_cart,
-.single-venue_space .woocommerce-mini-cart,
-.single-venue_space a.wc-block-customer-account__account-icon,
-.single-venue_space .wp-block-woocommerce-customer-account,
-.single-venue_space .wp-block-woocommerce-mini-cart,
-.single-venue_space .wc-block-customer-account {
+/* Hide WC customer chrome — VenueStack uses WC headless. */
+.wc-block-mini-cart,
+.widget_shopping_cart,
+.woocommerce-mini-cart,
+a.wc-block-customer-account__account-icon,
+.wp-block-woocommerce-customer-account,
+.wp-block-woocommerce-mini-cart,
+.wc-block-customer-account {
 	display: none !important;
 }
 

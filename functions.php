@@ -9,8 +9,52 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'VENUESTACK_VERSION', wp_get_theme()->get( 'Version' ) ?: '0.1.0' );
 
+require_once get_template_directory() . '/inc/icons.php';
+
 /**
- * Enqueue theme styles and built assets.
+ * Styles for frontend + Site Editor canvas.
+ *
+ * enqueue_block_assets runs in both contexts. Template CSS was previously
+ * gated on is_front_page() / is_singular(), which are false in the editor —
+ * so the canvas rendered unstyled markup.
+ */
+function venuestack_enqueue_block_assets(): void {
+	$theme_uri = get_template_directory_uri();
+
+	wp_enqueue_style(
+		'venuestack-header-footer',
+		$theme_uri . '/assets/css/header-footer.css',
+		array(),
+		VENUESTACK_VERSION
+	);
+
+	wp_enqueue_style(
+		'venuestack-interactive',
+		$theme_uri . '/assets/css/interactive.css',
+		array( 'venuestack-header-footer' ),
+		VENUESTACK_VERSION
+	);
+
+	// Scoped to .venuestack-home — safe in editor and on other templates.
+	wp_enqueue_style(
+		'venuestack-home',
+		$theme_uri . '/assets/css/home.css',
+		array( 'venuestack-interactive' ),
+		VENUESTACK_VERSION
+	);
+
+	// Scoped to .venuestack-space / .single-venue_space.
+	wp_enqueue_style(
+		'venuestack-single-space',
+		$theme_uri . '/assets/css/single-space.css',
+		array( 'venuestack-interactive' ),
+		VENUESTACK_VERSION
+	);
+}
+add_action( 'enqueue_block_assets', 'venuestack_enqueue_block_assets' );
+
+/**
+ * Front-end only scripts (and optional built assets).
  */
 function venuestack_enqueue_assets(): void {
 	$theme_uri = get_template_directory_uri();
@@ -22,27 +66,9 @@ function venuestack_enqueue_assets(): void {
 		VENUESTACK_VERSION
 	);
 
-	wp_enqueue_style(
-		'venuestack-header-footer',
-		$theme_uri . '/assets/css/header-footer.css',
-		array( 'venuestack-style' ),
-		VENUESTACK_VERSION
-	);
-
-	wp_enqueue_style(
-		'venuestack-interactive',
-		$theme_uri . '/assets/css/interactive.css',
-		array( 'venuestack-header-footer' ),
-		VENUESTACK_VERSION
-	);
-
-	if ( is_singular( 'venue_space' ) ) {
-		wp_enqueue_style(
-			'venuestack-single-space',
-			$theme_uri . '/assets/css/single-space.css',
-			array( 'venuestack-style' ),
-			VENUESTACK_VERSION
-		);
+	// Homepage marketing: motion scroll reveals (architecture.md).
+	if ( ! is_front_page() ) {
+		return;
 	}
 
 	$asset_file = get_template_directory() . '/build/index.asset.php';

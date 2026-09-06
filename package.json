@@ -29,5 +29,9 @@
 		"src/**/*.{css,scss}": [
 			"wp-scripts lint-style"
 		]
+	},
+	"dependencies": {
+		"@formkit/auto-animate": "^0.10.0",
+		"motion": "^13.2.0"
 	}
 }

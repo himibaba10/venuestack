@@ -1,0 +1,548 @@
+/**
+ * Homepage styles — only what the block editor cannot set.
+ * Colors, solid backgrounds, and layout widths live on block attributes.
+ */
+
+/* —— Hero (photo + overlay gradients) —— */
+.venuestack-home-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 92vh;
+  overflow: hidden;
+  margin: 0 !important;
+  background-image: linear-gradient(
+      180deg,
+      rgba(33, 29, 27, 0) 0%,
+      rgba(33, 29, 27, 0.55) 45%,
+      rgba(33, 29, 27, 0.92) 100%
+    ),
+    linear-gradient(rgba(33, 29, 27, 0.35), rgba(33, 29, 27, 0.35)),
+    url('../images/home/hero-hall.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.venuestack-home-hero > * {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.venuestack-eyebrow {
+  margin: 0;
+  font-family: var(--wp--preset--font-family--work-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.venuestack-home-hero .wp-block-heading {
+  font-size: clamp(2.75rem, 1.4rem + 6vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: var(--wp--preset--spacing--30) 0 0;
+}
+
+.venuestack-home-hero__lede,
+.venuestack-home-hero__lede p {
+  max-width: 36rem;
+  margin: var(--wp--preset--spacing--30) 0 0;
+  line-height: 1.6;
+}
+
+.venuestack-home-hero .wp-block-buttons {
+  margin-top: var(--wp--preset--spacing--40);
+  gap: var(--wp--preset--spacing--20);
+}
+
+.venuestack-home-hero .is-style-outline .wp-block-button__link {
+  background: transparent !important;
+}
+
+.venuestack-home-hero .is-style-outline .wp-block-button__link:hover,
+.venuestack-home-hero .is-style-outline .wp-block-button__link:focus {
+  background: var(--wp--preset--color--evergreen) !important;
+  border-color: var(--wp--preset--color--evergreen) !important;
+  color: var(--wp--preset--color--plaster) !important;
+}
+
+/* —— Stats —— */
+.venuestack-home-stats {
+  position: relative;
+  overflow: hidden;
+}
+
+.venuestack-home-stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--wp--preset--color--brass) 0,
+    var(--wp--preset--color--brass) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+.venuestack-home-stats__row {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.venuestack-home-stats__cell {
+  text-align: center;
+  padding-inline: var(--wp--preset--spacing--20);
+  border-right: 1px solid
+    color-mix(in srgb, var(--wp--preset--color--ink) 14%, transparent);
+}
+
+.venuestack-home-stats__cell:last-child {
+  border-right: none;
+}
+
+.venuestack-home-stats__value {
+  margin: 0;
+  font-family: var(--wp--preset--font-family--playfair-display);
+  font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.venuestack-home-stats__label {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 781px) {
+  .venuestack-home-stats__cell {
+    border-right: none;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--wp--preset--color--ink) 14%, transparent);
+    padding-block: var(--wp--preset--spacing--30);
+  }
+
+  .venuestack-home-stats__cell:nth-child(3),
+  .venuestack-home-stats__cell:nth-child(4) {
+    border-bottom: none;
+  }
+}
+
+/* —— Section shell —— */
+.venuestack-home-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.venuestack-home-section__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.venuestack-home-section .wp-block-heading {
+  letter-spacing: -0.02em;
+}
+
+/* Capabilities — decorative wash + 1px board seams */
+.venuestack-home-capabilities::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    60% 60% at 50% 0%,
+    color-mix(in srgb, var(--wp--preset--color--brass) 22%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+.venuestack-home-capabilities::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    var(--wp--preset--color--brass) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  opacity: 0.14;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.venuestack-home-capabilities
+  .venuestack-home-section__inner
+  > .venuestack-home-reveal
+  .wp-block-heading {
+  margin-top: var(--wp--preset--spacing--20);
+  font-size: clamp(2.1rem, 1.3rem + 3.4vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.venuestack-home-cap-board {
+  margin: 0;
+}
+
+.venuestack-home-cap-grid {
+  display: flex;
+  gap: 1px !important;
+  background: color-mix(
+    in srgb,
+    var(--wp--preset--color--ink) 14%,
+    transparent
+  );
+  margin: 0 !important;
+}
+
+.venuestack-home-cap-grid + .venuestack-home-cap-grid {
+  margin-top: 1px !important;
+}
+
+.venuestack-home-cap {
+  margin: 0;
+}
+
+.venuestack-home-cap.is-layout-flow > * {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+.venuestack-home-cap .wp-block-icon,
+.venuestack-home-cap__icon.wp-block-icon {
+  display: block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 1.5rem !important;
+  max-width: 1.5rem;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0;
+}
+
+.venuestack-home-cap .wp-block-icon svg {
+  display: block;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  fill: currentColor;
+}
+
+.venuestack-home-cap .wp-block-heading {
+  margin: var(--wp--preset--spacing--30) 0 0 !important;
+  font-family: var(--wp--preset--font-family--playfair-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.venuestack-home-cap > p {
+  margin: var(--wp--preset--spacing--20) 0 0 !important;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+@media (max-width: 781px) {
+  .venuestack-home-cap-grid {
+    flex-direction: column;
+  }
+}
+
+/* Spaces directory */
+.venuestack-home-spaces::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+      55% 70% at 85% 20%,
+      color-mix(in srgb, var(--wp--preset--color--evergreen) 16%, transparent)
+        0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      to right,
+      var(--wp--preset--color--ink) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--wp--preset--color--ink) 1px,
+      transparent 1px
+    );
+  background-size:
+    auto,
+    72px 72px,
+    72px 72px;
+  opacity: 0.06;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.venuestack-home-spaces__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--wp--preset--spacing--30);
+}
+
+.venuestack-home-spaces__link {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.venuestack-home-spaces__link:hover,
+.venuestack-home-spaces__link:focus {
+  color: var(--wp--preset--color--ember);
+}
+
+.venuestack-home-space-card {
+  height: 100%;
+  margin: 0;
+}
+
+.venuestack-home-space-card .wp-block-post-featured-image {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.venuestack-home-space-card .wp-block-post-featured-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.venuestack-home-space-card:hover .wp-block-post-featured-image img {
+  transform: scale(1.05);
+}
+
+.venuestack-home-space-card .wp-block-post-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
+  line-height: 1.15;
+}
+
+.venuestack-home-space-card .wp-block-post-title a {
+  text-decoration: none;
+}
+
+.venuestack-home-space-card .wp-block-post-title a:hover {
+  color: var(--wp--preset--color--ember);
+}
+
+.venuestack-home-space-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: inline-flex;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.venuestack-home-space-type a {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.venuestack-home-space-type .wp-block-post-terms__separator {
+  display: none;
+}
+
+.venuestack-home-space-card__media {
+  position: relative;
+}
+
+.venuestack-home-space-meta {
+  width: 100%;
+  font-size: var(--wp--preset--font-size--small);
+}
+
+.venuestack-home-space-meta > .wp-block-group {
+  width: 100%;
+}
+
+.venuestack-home-space-meta p {
+  margin: 0;
+}
+
+.venuestack-home-space-meta p:last-child {
+  font-weight: 500;
+  text-align: right;
+}
+
+.venuestack-home-space-meta .is-rate,
+.venuestack-home-space-meta p.is-rate {
+  font-weight: 600;
+}
+
+.venuestack-home-spaces-query .wp-block-post-template {
+  gap: var(--wp--preset--spacing--40) !important;
+}
+
+@media (max-width: 1100px) {
+  .venuestack-home-spaces-query .wp-block-post-template {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .venuestack-home-spaces-query .wp-block-post-template {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Steps */
+.venuestack-home-steps::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  width: 50%;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--wp--preset--color--brass) 0,
+    var(--wp--preset--color--brass) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.venuestack-home-step {
+  margin: 0;
+}
+
+.venuestack-home-step__n {
+  display: block;
+  font-family: var(--wp--preset--font-family--playfair-display);
+  font-size: 1.875rem;
+  line-height: 1;
+}
+
+.venuestack-home-step .wp-block-heading {
+  margin: var(--wp--preset--spacing--20) 0 0;
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
+}
+
+.venuestack-home-step p:not(.venuestack-home-step__n) {
+  margin: 0.5rem 0 0;
+  line-height: 1.65;
+}
+
+/* CTA */
+.venuestack-home-cta {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.venuestack-home-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+      70% 90% at 50% 115%,
+      color-mix(in srgb, var(--wp--preset--color--brass) 40%, transparent) 0%,
+      transparent 65%
+    ),
+    repeating-radial-gradient(
+      circle at 50% 118%,
+      color-mix(in srgb, var(--wp--preset--color--plaster) 14%, transparent) 0,
+      color-mix(in srgb, var(--wp--preset--color--plaster) 14%, transparent) 1px,
+      transparent 1px,
+      transparent 92px
+    );
+}
+
+.venuestack-home-cta .wp-block-heading,
+.venuestack-home-cta p,
+.venuestack-home-cta .wp-block-buttons {
+  position: relative;
+}
+
+.venuestack-home-cta .is-style-outline .wp-block-button__link {
+  background: transparent !important;
+}
+
+.venuestack-home-cta .is-style-outline .wp-block-button__link:hover,
+.venuestack-home-cta .is-style-outline .wp-block-button__link:focus {
+  background: var(--wp--preset--color--brass) !important;
+  color: var(--wp--preset--color--plaster) !important;
+}
+
+/* Reveal — motion animates after JS adds html.venuestack-reveal-enabled.
+   Site Editor / no-JS keep content visible. */
+.venuestack-home-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+html.venuestack-reveal-enabled .venuestack-home-reveal {
+  opacity: 0;
+  transform: translateY(1.75rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.venuestack-reveal-enabled .venuestack-home-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .venuestack-home-space-card .wp-block-post-featured-image img {
+    transition: none;
+  }
+}
+
+.editor-styles-wrapper .venuestack-home-reveal,
+.block-editor-iframe__body .venuestack-home-reveal,
+.block-editor-block-list__layout .venuestack-home-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
