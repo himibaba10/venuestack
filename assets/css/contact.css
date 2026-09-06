@@ -1,0 +1,59 @@
+/**
+ * Contact page — Giraforms polish to match VenueStack chrome.
+ */
+
+.venuestack-contact-form-section .giraforms-form-container {
+	margin: 0;
+	max-width: 42rem;
+}
+
+.venuestack-contact-form-section .giraforms-form-container label {
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	color: var(--wp--preset--color--ink);
+}
+
+.venuestack-contact-form-section .giraforms-form-container input[type='text'],
+.venuestack-contact-form-section .giraforms-form-container input[type='email'],
+.venuestack-contact-form-section .giraforms-form-container input[type='tel'],
+.venuestack-contact-form-section .giraforms-form-container select,
+.venuestack-contact-form-section .giraforms-form-container textarea {
+	border: 1px solid var(--wp--preset--color--rule);
+	border-radius: 0;
+	background: var(--wp--preset--color--plaster);
+	color: var(--wp--preset--color--ink);
+	font-family: var(--wp--preset--font-family--work-sans);
+	padding: 0.75rem 0.9rem;
+}
+
+.venuestack-contact-form-section .giraforms-form-container input:focus,
+.venuestack-contact-form-section .giraforms-form-container select:focus,
+.venuestack-contact-form-section .giraforms-form-container textarea:focus {
+	outline: 2px solid var(--wp--preset--color--brass);
+	outline-offset: 2px;
+	border-color: var(--wp--preset--color--brass);
+}
+
+.venuestack-contact-form-section .giraforms-submit-button,
+.venuestack-contact-form-section button[type='submit'] {
+	appearance: none;
+	border: 0;
+	border-radius: 0;
+	background: var(--wp--preset--color--brass);
+	color: var(--wp--preset--color--plaster);
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	padding: 0.85rem 1.5rem;
+	cursor: pointer;
+}
+
+.venuestack-contact-form-section .giraforms-message.success,
+.venuestack-contact-form-section .giraforms-message.visible {
+	border-radius: 0;
+	border: 1px solid var(--wp--preset--color--evergreen);
+	background: color-mix(in srgb, var(--wp--preset--color--evergreen) 10%, var(--wp--preset--color--plaster));
+	color: var(--wp--preset--color--ink);
+}
