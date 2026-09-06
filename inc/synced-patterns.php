@@ -25,6 +25,7 @@ function venuestack_synced_pattern_map(): array {
 		'venuestack/capability-card' => 'capability-card.php',
 		'venuestack/space-card'      => 'space-card.php',
 		'venuestack/step-card'       => 'step-card.php',
+		'venuestack/page-banner'     => 'page-banner.php',
 	);
 }
 
@@ -38,6 +39,7 @@ function venuestack_synced_pattern_titles(): array {
 		'venuestack/capability-card' => __( 'Capability card', 'venuestack' ),
 		'venuestack/space-card'      => __( 'Space card', 'venuestack' ),
 		'venuestack/step-card'       => __( 'Step card', 'venuestack' ),
+		'venuestack/page-banner'     => __( 'Page banner', 'venuestack' ),
 	);
 }
 
@@ -290,3 +292,40 @@ function venuestack_resolve_synced_pattern_render_block_data( array $parsed_bloc
 	return $parsed_block;
 }
 add_filter( 'render_block_data', 'venuestack_resolve_synced_pattern_render_block_data' );
+
+/**
+ * Inject synced pattern refs into page/post content for the block editor.
+ *
+ * Templates get refs via get_block_template filters. Page content does not —
+ * without `ref`, core/block crashes in the editor (frontend still works via
+ * render_block_data).
+ *
+ * @param WP_REST_Response $response Response.
+ * @param WP_Post          $post     Post.
+ * @param WP_REST_Request  $request  Request.
+ * @return WP_REST_Response
+ */
+function venuestack_rest_prepare_inject_synced_refs( $response, $post, $request ) {
+	unset( $post, $request );
+
+	if ( ! $response instanceof WP_REST_Response ) {
+		return $response;
+	}
+
+	$data = $response->get_data();
+	if ( empty( $data['content']['raw'] ) || ! is_string( $data['content']['raw'] ) ) {
+		return $response;
+	}
+
+	if ( ! str_contains( $data['content']['raw'], 'venuestack/' ) ) {
+		return $response;
+	}
+
+	$data['content']['raw'] = venuestack_inject_synced_pattern_refs( $data['content']['raw'] );
+	$response->set_data( $data );
+
+	return $response;
+}
+add_filter( 'rest_prepare_page', 'venuestack_rest_prepare_inject_synced_refs', 10, 3 );
+add_filter( 'rest_prepare_wp_template', 'venuestack_rest_prepare_inject_synced_refs', 10, 3 );
+add_filter( 'rest_prepare_wp_template_part', 'venuestack_rest_prepare_inject_synced_refs', 10, 3 );
