@@ -2,6 +2,10 @@
 /**
  * Register VenueStack icons for the core Icon block (WP 7.1 Icons API).
  *
+ * Icons are Lucide outlines converted to fill-rule evenodd paths. WP sanitizes
+ * registered SVGs and strips stroke attributes, so stroke-only Lucide files
+ * cannot be registered as-is.
+ *
  * @package Venuestack
  */
 
