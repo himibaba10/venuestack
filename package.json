@@ -24,10 +24,10 @@
 	},
 	"lint-staged": {
 		"src/**/*.{js,jsx,ts,tsx}": [
-			"wp-scripts lint-js"
+			"wp-scripts lint-js --fix"
 		],
 		"src/**/*.{css,scss}": [
-			"wp-scripts lint-style"
+			"wp-scripts lint-style --fix"
 		]
 	},
 	"dependencies": {

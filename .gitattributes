@@ -1,0 +1,3 @@
+# Keep source and config as LF so Prettier/wp-scripts lint stays stable on Windows.
+* text=auto eol=lf
+*.{cmd,bat,ps1} text eol=crlf

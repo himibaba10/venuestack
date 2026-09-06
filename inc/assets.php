@@ -71,7 +71,20 @@ function venuestack_enqueue_block_editor_assets(): void
 		true
 	);
 
-	wp_set_script_translations('venuestack-editor', 'venuestack');
+	wp_add_inline_script(
+		'venuestack-editor',
+		'window.venuestackHomeStats = ' . wp_json_encode(
+			array(
+				'spaces'          => venuestack_get_home_stat_display( 'spaces' ),
+				'max_guests'      => venuestack_get_home_stat_display( 'max_guests' ),
+				'hold'            => venuestack_get_home_stat_display( 'hold' ),
+				'double_bookings' => venuestack_get_home_stat_display( 'double_bookings' ),
+			)
+		) . ';',
+		'before'
+	);
+
+	wp_set_script_translations( 'venuestack-editor', 'venuestack' );
 }
 add_action('enqueue_block_editor_assets', 'venuestack_enqueue_block_editor_assets');
 

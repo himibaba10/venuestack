@@ -178,15 +178,38 @@ function venuestack_cover_should_use_seeded_home_hero( array $attrs ): bool {
 }
 
 /**
- * Rewrite Cover inner markup so the background img matches the seeded URL/alt.
+ * Rewrite Cover inner markup so the background img matches the seeded media.
  *
- * @param string $html Cover inner HTML chunk.
- * @param string $url  Attachment URL.
- * @param string $alt  Alt text.
+ * Cover's save() adds `wp-image-{id}` when an attachment id is set; injected
+ * markup must match or the Site Editor reports a validation error.
+ *
+ * @param string $html           Cover inner HTML chunk.
+ * @param string $url            Attachment URL.
+ * @param string $alt            Alt text.
+ * @param int    $attachment_id  Attachment ID (0 skips class rewrite).
  */
-function venuestack_rewrite_cover_hero_image_html( string $html, string $url, string $alt ): string {
+function venuestack_rewrite_cover_hero_image_html( string $html, string $url, string $alt, int $attachment_id = 0 ): string {
 	if ( ! str_contains( $html, 'wp-block-cover__image-background' ) ) {
 		return $html;
+	}
+
+	if ( $attachment_id > 0 ) {
+		$rewritten = preg_replace_callback(
+			'/(<img\b[^>]*\bclass=")([^"]*\bwp-block-cover__image-background\b[^"]*)(")/',
+			static function ( array $matches ) use ( $attachment_id ): string {
+				$class = preg_replace( '/\bwp-image-\d+\b/', '', $matches[2] );
+				$class = trim( (string) preg_replace( '/\s+/', ' ', (string) $class ) );
+				$class = $class . ' wp-image-' . $attachment_id;
+
+				return $matches[1] . $class . $matches[3];
+			},
+			$html,
+			1
+		);
+
+		if ( is_string( $rewritten ) ) {
+			$html = $rewritten;
+		}
 	}
 
 	$html = preg_replace(
@@ -237,13 +260,13 @@ function venuestack_inject_home_hero_into_blocks( array $blocks ): array {
 			$block['attrs']['alt'] = $alt;
 
 			if ( ! empty( $block['innerHTML'] ) && is_string( $block['innerHTML'] ) ) {
-				$block['innerHTML'] = venuestack_rewrite_cover_hero_image_html( $block['innerHTML'], $url, $alt );
+				$block['innerHTML'] = venuestack_rewrite_cover_hero_image_html( $block['innerHTML'], $url, $alt, $theme_hero_id );
 			}
 
 			if ( ! empty( $block['innerContent'] ) && is_array( $block['innerContent'] ) ) {
 				foreach ( $block['innerContent'] as &$chunk ) {
 					if ( is_string( $chunk ) ) {
-						$chunk = venuestack_rewrite_cover_hero_image_html( $chunk, $url, $alt );
+						$chunk = venuestack_rewrite_cover_hero_image_html( $chunk, $url, $alt, $theme_hero_id );
 					}
 				}
 				unset( $chunk );
@@ -332,13 +355,13 @@ function venuestack_resolve_home_hero_render_block_data( array $parsed_block ): 
 	$parsed_block['attrs']['alt'] = $alt;
 
 	if ( ! empty( $parsed_block['innerHTML'] ) && is_string( $parsed_block['innerHTML'] ) ) {
-		$parsed_block['innerHTML'] = venuestack_rewrite_cover_hero_image_html( $parsed_block['innerHTML'], $url, $alt );
+		$parsed_block['innerHTML'] = venuestack_rewrite_cover_hero_image_html( $parsed_block['innerHTML'], $url, $alt, $id );
 	}
 
 	if ( ! empty( $parsed_block['innerContent'] ) && is_array( $parsed_block['innerContent'] ) ) {
 		foreach ( $parsed_block['innerContent'] as &$chunk ) {
 			if ( is_string( $chunk ) ) {
-				$chunk = venuestack_rewrite_cover_hero_image_html( $chunk, $url, $alt );
+				$chunk = venuestack_rewrite_cover_hero_image_html( $chunk, $url, $alt, $id );
 			}
 		}
 		unset( $chunk );
