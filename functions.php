@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 define( 'VENUESTACK_VERSION', wp_get_theme()->get( 'Version' ) ?: '0.1.0' );
 
 require_once get_template_directory() . '/inc/icons.php';
+require_once get_template_directory() . '/inc/synced-patterns.php';
 
 /**
  * Silence the Site Editor false-positive for global CSS custom properties.
