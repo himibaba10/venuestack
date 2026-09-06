@@ -2,8 +2,9 @@
 /**
  * Homepage hero media: seed bundled photo into the Media Library.
  *
- * Theme templates reference the Cover by class; runtime injection supplies
- * the attachment `id` + uploads URL so the editor treats it as owned media.
+ * The theme JPG is seed-only (never referenced as Cover `url`/`src`).
+ * Templates mark the Cover with `venuestack-home-hero`; runtime injection
+ * supplies attachment `id`, uploads URL, alt, and background `<img>` markup.
  *
  * @package Venuestack
  */
@@ -178,10 +179,35 @@ function venuestack_cover_should_use_seeded_home_hero( array $attrs ): bool {
 }
 
 /**
- * Rewrite Cover inner markup so the background img matches the seeded media.
+ * Build Cover background <img> markup for the seeded home hero.
  *
  * Cover's save() adds `wp-image-{id}` when an attachment id is set; injected
  * markup must match or the Site Editor reports a validation error.
+ *
+ * @param string $url           Attachment URL.
+ * @param string $alt           Alt text.
+ * @param int    $attachment_id Attachment ID.
+ */
+function venuestack_home_hero_cover_image_markup( string $url, string $alt, int $attachment_id ): string {
+	$class = 'wp-block-cover__image-background';
+
+	if ( $attachment_id > 0 ) {
+		$class .= ' wp-image-' . $attachment_id;
+	}
+
+	return sprintf(
+		'<img class="%s" alt="%s" src="%s" data-object-fit="cover"/>',
+		esc_attr( $class ),
+		esc_attr( $alt ),
+		esc_url( $url )
+	);
+}
+
+/**
+ * Ensure Cover inner markup uses the seeded Media Library background image.
+ *
+ * Inserts the background <img> when the theme template ships without one
+ * (seed-only JPG; no theme-path URL in block markup).
  *
  * @param string $html           Cover inner HTML chunk.
  * @param string $url            Attachment URL.
@@ -189,8 +215,17 @@ function venuestack_cover_should_use_seeded_home_hero( array $attrs ): bool {
  * @param int    $attachment_id  Attachment ID (0 skips class rewrite).
  */
 function venuestack_rewrite_cover_hero_image_html( string $html, string $url, string $alt, int $attachment_id = 0 ): string {
+	$img = venuestack_home_hero_cover_image_markup( $url, $alt, $attachment_id );
+
 	if ( ! str_contains( $html, 'wp-block-cover__image-background' ) ) {
-		return $html;
+		$inserted = preg_replace(
+			'/(<div\b[^>]*\bwp-block-cover\b[^>]*>)/',
+			'$1' . $img,
+			$html,
+			1
+		);
+
+		return is_string( $inserted ) ? $inserted : $html;
 	}
 
 	if ( $attachment_id > 0 ) {

@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  * Transient key for aggregated homepage stats.
  */
 function venuestack_home_stats_transient_key(): string {
-	return 'venuestack_home_stats_v1';
+	return 'venuestack_home_stats_v2';
 }
 
 /**
@@ -20,7 +20,7 @@ function venuestack_home_stats_transient_key(): string {
  * @param int $post_id Post ID.
  */
 function venuestack_flush_home_stats_cache( int $post_id = 0 ): void {
-	if ( $post_id && 'venue_space' !== get_post_type( $post_id ) ) {
+	if ( $post_id > 0 && 'venue_space' !== get_post_type( $post_id ) ) {
 		return;
 	}
 
@@ -30,6 +30,24 @@ add_action( 'save_post_venue_space', 'venuestack_flush_home_stats_cache' );
 add_action( 'deleted_post', 'venuestack_flush_home_stats_cache' );
 add_action( 'trashed_post', 'venuestack_flush_home_stats_cache' );
 add_action( 'untrashed_post', 'venuestack_flush_home_stats_cache' );
+
+/**
+ * Flush stats when space_type terms change.
+ *
+ * @param int    $term_id Term ID.
+ * @param int    $tt_id   Term taxonomy ID.
+ * @param string $taxonomy Taxonomy slug.
+ */
+function venuestack_flush_home_stats_on_term_change( int $term_id, int $tt_id, string $taxonomy ): void {
+	unset( $term_id, $tt_id );
+
+	if ( 'space_type' === $taxonomy ) {
+		venuestack_flush_home_stats_cache();
+	}
+}
+add_action( 'created_term', 'venuestack_flush_home_stats_on_term_change', 10, 3 );
+add_action( 'edited_term', 'venuestack_flush_home_stats_on_term_change', 10, 3 );
+add_action( 'delete_term', 'venuestack_flush_home_stats_on_term_change', 10, 3 );
 
 /**
  * Soft-hold duration in seconds (plugin constant when available).
@@ -61,14 +79,51 @@ function venuestack_home_stats_hold_label(): string {
 }
 
 /**
+ * Count of published space_type terms in use (or all if none assigned yet).
+ */
+function venuestack_home_stats_space_type_count(): int {
+	if ( ! taxonomy_exists( 'space_type' ) ) {
+		return 0;
+	}
+
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'space_type',
+			'hide_empty' => true,
+			'fields'     => 'count',
+		)
+	);
+
+	if ( is_wp_error( $terms ) ) {
+		return 0;
+	}
+
+	$count = (int) $terms;
+
+	// Fresh installs may have types seeded before spaces are assigned.
+	if ( $count < 1 ) {
+		$all = get_terms(
+			array(
+				'taxonomy'   => 'space_type',
+				'hide_empty' => false,
+				'fields'     => 'count',
+			)
+		);
+		$count = is_wp_error( $all ) ? 0 : (int) $all;
+	}
+
+	return $count;
+}
+
+/**
  * Aggregated homepage stats for the marketing strip.
  *
- * @return array{spaces:int,max_guests:int,hold:string,double_bookings:int}
+ * @return array{spaces:int,max_guests:int,hold:string,space_types:int}
  */
 function venuestack_get_home_stats(): array {
 	$cached = get_transient( venuestack_home_stats_transient_key() );
 
-	if ( is_array( $cached ) && isset( $cached['spaces'], $cached['max_guests'], $cached['hold'], $cached['double_bookings'] ) ) {
+	if ( is_array( $cached ) && isset( $cached['spaces'], $cached['max_guests'], $cached['hold'], $cached['space_types'] ) ) {
 		return $cached;
 	}
 
@@ -99,11 +154,10 @@ function venuestack_get_home_stats(): array {
 	}
 
 	$stats = array(
-		'spaces'          => $spaces,
-		'max_guests'      => $max,
-		'hold'            => venuestack_home_stats_hold_label(),
-		// Architectural invariant: conflict checks + space mutex prevent overlaps.
-		'double_bookings' => 0,
+		'spaces'      => $spaces,
+		'max_guests'  => $max,
+		'hold'        => venuestack_home_stats_hold_label(),
+		'space_types' => venuestack_home_stats_space_type_count(),
 	);
 
 	set_transient( venuestack_home_stats_transient_key(), $stats, 5 * MINUTE_IN_SECONDS );
@@ -114,7 +168,7 @@ function venuestack_get_home_stats(): array {
 /**
  * Formatted display string for one homepage stat key.
  *
- * @param string $key One of spaces|max_guests|hold|double_bookings.
+ * @param string $key One of spaces|max_guests|hold|space_types.
  */
 function venuestack_get_home_stat_display( string $key ): string {
 	$stats = venuestack_get_home_stats();
@@ -122,7 +176,7 @@ function venuestack_get_home_stat_display( string $key ): string {
 	switch ( $key ) {
 		case 'spaces':
 		case 'max_guests':
-		case 'double_bookings':
+		case 'space_types':
 			return number_format_i18n( (int) ( $stats[ $key ] ?? 0 ) );
 
 		case 'hold':

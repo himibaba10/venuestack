@@ -75,10 +75,10 @@ function venuestack_enqueue_block_editor_assets(): void
 		'venuestack-editor',
 		'window.venuestackHomeStats = ' . wp_json_encode(
 			array(
-				'spaces'          => venuestack_get_home_stat_display( 'spaces' ),
-				'max_guests'      => venuestack_get_home_stat_display( 'max_guests' ),
-				'hold'            => venuestack_get_home_stat_display( 'hold' ),
-				'double_bookings' => venuestack_get_home_stat_display( 'double_bookings' ),
+				'spaces'      => venuestack_get_home_stat_display( 'spaces' ),
+				'max_guests'  => venuestack_get_home_stat_display( 'max_guests' ),
+				'hold'        => venuestack_get_home_stat_display( 'hold' ),
+				'space_types' => venuestack_get_home_stat_display( 'space_types' ),
 			)
 		) . ';',
 		'before'

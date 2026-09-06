@@ -247,6 +247,14 @@
   left: 0;
   z-index: 1;
   display: inline-flex;
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--wp--preset--font-family--work-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .venuestack-home-space-type a {
@@ -261,6 +269,10 @@
 
 .venuestack-home-space-card__media {
   position: relative;
+}
+
+.venuestack-home-space-card .is-rate {
+  font-weight: 600;
 }
 
 .venuestack-home-space-meta,

@@ -7,6 +7,9 @@
  * Some patterns also use per-instance `content` overrides; others are
  * fully synced (e.g. Query Loop cards with dynamic bindings).
  *
+ * When exporting with Create Block Theme, leave "Save Patterns" unchecked —
+ * these cards are already theme-owned and re-exporting them causes drift.
+ *
  * @package Venuestack
  */
 
