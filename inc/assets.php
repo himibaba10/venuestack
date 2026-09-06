@@ -47,6 +47,14 @@ function venuestack_enqueue_block_assets(): void
 		array('venuestack-interactive'),
 		VENUESTACK_VERSION
 	);
+
+	// Scoped to .venuestack-directory / archive-venue_space.
+	wp_enqueue_style(
+		'venuestack-directory',
+		$theme_uri . '/assets/css/directory.css',
+		array( 'venuestack-interactive', 'venuestack-home' ),
+		VENUESTACK_VERSION
+	);
 }
 add_action('enqueue_block_assets', 'venuestack_enqueue_block_assets');
 
@@ -102,8 +110,12 @@ function venuestack_enqueue_assets(): void
 		VENUESTACK_VERSION
 	);
 
-	// Marketing motion: homepage + single space.
-	if ( ! is_front_page() && ! is_singular( 'venue_space' ) ) {
+	// Marketing motion: homepage, single space, spaces directory.
+	if (
+		! is_front_page() &&
+		! is_singular( 'venue_space' ) &&
+		! is_post_type_archive( 'venue_space' )
+	) {
 		return;
 	}
 

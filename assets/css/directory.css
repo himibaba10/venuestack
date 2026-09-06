@@ -1,0 +1,120 @@
+/**
+ * Spaces directory — only what the block editor cannot set cleanly.
+ *
+ * Filter chips, grid reflow, and empty-state affordances.
+ */
+
+.venuestack-directory-filters {
+	background-color: var(--wp--preset--color--plaster);
+	border-bottom: 1px solid var(--wp--preset--color--rule);
+	margin: 0;
+	padding-block: var(--wp--preset--spacing--40);
+	padding-inline: var(--wp--preset--spacing--40);
+}
+
+.venuestack-directory-filters__inner {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--30);
+	width: 100%;
+	max-width: 1200px;
+	margin-inline: auto;
+}
+
+.venuestack-directory-filters__row {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--20);
+}
+
+.venuestack-directory-filters__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.venuestack-directory-chip {
+	appearance: none;
+	margin: 0;
+	padding: 0.55rem 0.95rem;
+	border: 1px solid var(--wp--preset--color--rule);
+	border-radius: 0;
+	background: var(--wp--preset--color--plaster);
+	color: var(--wp--preset--color--ink);
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	line-height: 1.2;
+	cursor: pointer;
+}
+
+.venuestack-directory-chip.is-amenity {
+	letter-spacing: 0.02em;
+}
+
+.venuestack-directory-chip.is-active,
+.venuestack-directory-chip[aria-pressed='true'] {
+	background: var(--wp--preset--color--ink);
+	border-color: var(--wp--preset--color--ink);
+	color: var(--wp--preset--color--plaster);
+}
+
+.venuestack-directory-chip:hover,
+.venuestack-directory-chip:focus-visible {
+	border-color: var(--wp--preset--color--brass);
+}
+
+.venuestack-directory-chip:focus-visible {
+	outline: 2px solid var(--wp--preset--color--brass);
+	outline-offset: 3px;
+}
+
+.venuestack-directory-filters__meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--20);
+}
+
+.venuestack-directory-filters__meta .is-style-body {
+	margin: 0;
+}
+
+.venuestack-directory-clear {
+	appearance: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--wp--preset--color--ember);
+	cursor: pointer;
+	text-decoration: underline;
+	text-underline-offset: 0.28em;
+}
+
+.venuestack-directory-clear:hover,
+.venuestack-directory-clear:focus-visible {
+	color: var(--wp--preset--color--brass);
+}
+
+.venuestack-directory-empty {
+	margin: 0;
+}
+
+.venuestack-directory-query .wp-block-post-template {
+	width: 100%;
+}
+
+@media (max-width: 1100px) {
+	.venuestack-directory-query .wp-block-post-template {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.venuestack-directory-query .wp-block-post-template {
+		grid-template-columns: 1fr !important;
+	}
+}
