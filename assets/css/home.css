@@ -1,33 +1,13 @@
 /**
  * Homepage styles — only what the block editor cannot set.
- * Colors, solid backgrounds, and layout widths live on block attributes.
+ * Colors, solid backgrounds, layout widths, block gaps, and the hero
+ * photo live on block attributes (Cover / Groups / Columns).
  */
 
-/* —— Hero (photo + overlay gradients) —— */
-.venuestack-home-hero {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  align-items: flex-end;
-  min-height: 92vh;
-  overflow: hidden;
+/* —— Hero (Cover owns image, overlay, min-height, padding) —— */
+.venuestack-home-hero.wp-block-cover {
   margin: 0 !important;
-  background-image: linear-gradient(
-      180deg,
-      rgba(33, 29, 27, 0) 0%,
-      rgba(33, 29, 27, 0.55) 45%,
-      rgba(33, 29, 27, 0.92) 100%
-    ),
-    linear-gradient(rgba(33, 29, 27, 0.35), rgba(33, 29, 27, 0.35)),
-    url('../images/home/hero-hall.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.venuestack-home-hero > * {
-  position: relative;
-  z-index: 1;
-  width: 100%;
+  overflow: hidden;
 }
 
 .venuestack-eyebrow {
@@ -43,19 +23,12 @@
   font-size: clamp(2.75rem, 1.4rem + 6vw, 5.5rem);
   line-height: 1.02;
   letter-spacing: -0.025em;
-  margin: var(--wp--preset--spacing--30) 0 0;
 }
 
 .venuestack-home-hero__lede,
 .venuestack-home-hero__lede p {
   max-width: 36rem;
-  margin: var(--wp--preset--spacing--30) 0 0;
   line-height: 1.6;
-}
-
-.venuestack-home-hero .wp-block-buttons {
-  margin-top: var(--wp--preset--spacing--40);
-  gap: var(--wp--preset--spacing--20);
 }
 
 .venuestack-home-hero .is-style-outline .wp-block-button__link {
@@ -154,7 +127,7 @@
   letter-spacing: -0.02em;
 }
 
-/* Capabilities — decorative wash + 1px board seams */
+/* Capabilities — decorative wash + seam color behind editor 1px gaps */
 .venuestack-home-capabilities::before {
   content: '';
   position: absolute;
@@ -193,7 +166,6 @@
   .venuestack-home-section__inner
   > .venuestack-home-reveal
   .wp-block-heading {
-  margin-top: var(--wp--preset--spacing--20);
   font-size: clamp(2.1rem, 1.3rem + 3.4vw, 3.5rem);
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -204,18 +176,12 @@
 }
 
 .venuestack-home-cap-grid {
-  display: flex;
-  gap: 1px !important;
   background: color-mix(
     in srgb,
     var(--wp--preset--color--ink) 14%,
     transparent
   );
   margin: 0 !important;
-}
-
-.venuestack-home-cap-grid + .venuestack-home-cap-grid {
-  margin-top: 1px !important;
 }
 
 .venuestack-home-cap {
@@ -301,14 +267,6 @@
     black 80%,
     transparent
   );
-}
-
-.venuestack-home-spaces__head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--wp--preset--spacing--30);
 }
 
 .venuestack-home-spaces__link {
@@ -411,10 +369,6 @@
 .venuestack-home-space-meta .is-rate,
 .venuestack-home-space-meta p.is-rate {
   font-weight: 600;
-}
-
-.venuestack-home-spaces-query .wp-block-post-template {
-  gap: var(--wp--preset--spacing--40) !important;
 }
 
 @media (max-width: 1100px) {
