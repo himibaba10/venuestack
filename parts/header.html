@@ -1,30 +1,46 @@
-<!-- wp:group {"layout":{"inherit":"true"}} -->
-<div class="wp-block-group">
-	<!-- wp:group {"align":"full","layout":{"type":"flex","justifyContent":"space-between"},"style":{"spacing":{"padding":{"bottom":"30px","top":"30px"}}}} -->
-	<div class="wp-block-group alignfull" style="padding-bottom:30px;padding-top:30px">
-	
-		<!-- wp:group {"layout":{"type":"flex"}} -->
-		<div class="wp-block-group">
-			<!-- wp:site-logo {"width":64} /-->
-	
-			<!-- wp:group -->
-			<div class="wp-block-group">
-				<!-- wp:site-title /-->
-				<!-- wp:site-tagline /-->
+<!-- wp:group {"tagName":"header","align":"full","className":"venuestack-site-header","layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"},"blockGap":"0"},"border":{"bottom":{"color":"var:preset|color|stone","width":"1px","style":"solid"}}}} -->
+<header class="wp-block-group alignfull venuestack-site-header" style="border-bottom-color:var(--wp--preset--color--stone);border-bottom-style:solid;border-bottom-width:1px;margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+
+	<!-- wp:group {"align":"full","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}}} -->
+	<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+
+		<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+		<div class="wp-block-group alignwide">
+
+			<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"className":"venuestack-brand"} -->
+			<div class="wp-block-group venuestack-brand">
+				<!-- wp:site-logo {"width":48,"shouldSyncIcon":false,"className":"venuestack-brand__logo"} /-->
+				<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"left"},"style":{"spacing":{"blockGap":"0.15rem"}}} -->
+				<div class="wp-block-group">
+					<!-- wp:site-title {"level":0,"className":"venuestack-brand__title","style":{"typography":{"fontFamily":"var:preset|font-family|playfair-display","fontSize":"var:preset|font-size|x-large","fontWeight":"600","letterSpacing":"-0.02em","lineHeight":"1.1"},"elements":{"link":{"color":{"text":"var:preset|color|ink"},":hover":{"color":{"text":"var:preset|color|ember"}}}}}} /-->
+					<!-- wp:site-tagline {"className":"venuestack-brand__tagline","style":{"typography":{"fontSize":"var:preset|font-size|small","fontWeight":"500","lineHeight":"1.3"},"color":{"text":"var:preset|color|evergreen"}}} /-->
+				</div>
+				<!-- /wp:group -->
 			</div>
 			<!-- /wp:group -->
+
+			<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"right","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"className":"venuestack-header-actions"} -->
+			<div class="wp-block-group venuestack-header-actions">
+				<!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right","orientation":"horizontal"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"},"typography":{"fontSize":"var:preset|font-size|medium","fontWeight":"500"}},"fontFamily":"work-sans","className":"venuestack-primary-nav"} -->
+					<!-- wp:navigation-link {"label":"Spaces","url":"/spaces/","kind":"custom","isTopLevelLink":true} /-->
+					<!-- wp:navigation-link {"label":"Packages","url":"/packages/","kind":"custom","isTopLevelLink":true} /-->
+				<!-- /wp:navigation -->
+
+				<!-- wp:buttons {"className":"venuestack-header-cta","layout":{"type":"flex","justifyContent":"right"}} -->
+				<div class="wp-block-buttons venuestack-header-cta">
+					<!-- wp:button {"backgroundColor":"brass","textColor":"plaster","className":"is-style-fill","style":{"border":{"radius":"0px"},"typography":{"fontWeight":"500","letterSpacing":"0.02em"},"spacing":{"padding":{"top":"0.7rem","bottom":"0.7rem","left":"1.35rem","right":"1.35rem"}}}} -->
+					<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-plaster-color has-brass-background-color has-text-color has-background wp-element-button" href="/spaces/" style="border-radius:0px;padding-top:0.7rem;padding-right:1.35rem;padding-bottom:0.7rem;padding-left:1.35rem;font-weight:500;letter-spacing:0.02em">Book a space</a></div>
+					<!-- /wp:button -->
+				</div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:group -->
+
 		</div>
 		<!-- /wp:group -->
-	
-		<!-- wp:navigation {"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right","orientation":"horizontal"},"style":{"spacing":{"margin":{"top":"0"}}}} /-->
-	
+
 	</div>
 	<!-- /wp:group -->
 
-</div>
+</header>
 <!-- /wp:group -->
-
-<!-- wp:spacer {"height":50} -->
-<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
- 

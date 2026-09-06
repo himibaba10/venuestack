@@ -7,23 +7,9 @@ Description: VenueStack is tailored for complex, multi-space venues such as banq
 Requires at least: 7.1
 Tested up to: 7.1
 Requires PHP: 5.7
-Version: 
+Version: 0.1.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: venuestack
 Tags: 
 */
-
-/* Single space: full-bleed hero plane */
-.venuestack-space-hero .wp-block-post-featured-image {
-	margin: 0;
-}
-
-.venuestack-space-hero .wp-block-post-featured-image img {
-	display: block;
-	width: 100%;
-	height: auto;
-	max-height: min(78vh, 52rem);
-	object-fit: cover;
-}
-

@@ -1,0 +1,102 @@
+/**
+ * Header & footer shell styles.
+ *
+ * Sticky header, brand/nav tweaks, footer on dusk gradient.
+ */
+
+.venuestack-site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background:
+		linear-gradient(
+			180deg,
+			rgba(242, 236, 227, 0.97) 0%,
+			rgba(242, 236, 227, 0.92) 100%
+		);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.venuestack-brand__title a {
+	text-decoration: none;
+}
+
+.venuestack-brand__tagline {
+	margin: 0;
+}
+
+.venuestack-header-actions .wp-block-navigation a {
+	text-decoration: none;
+}
+
+.venuestack-header-cta .wp-block-button__link {
+	white-space: nowrap;
+}
+
+@media (max-width: 781px) {
+	.venuestack-brand__tagline {
+		display: none;
+	}
+
+	.venuestack-header-cta {
+		display: none;
+	}
+}
+
+.venuestack-site-footer {
+	color: var(--wp--preset--color--plaster);
+}
+
+/* Kill theme.json blockGap between main and footer (plaster strip). */
+.wp-site-blocks > footer.wp-block-template-part,
+.wp-site-blocks > .venuestack-site-footer {
+	margin-block-start: 0 !important;
+}
+
+.venuestack-site-footer a {
+	color: var(--wp--preset--color--plaster);
+	text-decoration: none;
+}
+
+.venuestack-site-footer a:hover,
+.venuestack-site-footer a:focus {
+	color: var(--wp--preset--color--brass);
+}
+
+.venuestack-footer-brand a {
+	text-decoration: none;
+}
+
+.venuestack-footer-nav .wp-block-navigation-item__content {
+	color: var(--wp--preset--color--plaster);
+}
+
+.venuestack-footer-rule {
+	border: none;
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		var(--wp--preset--color--brass) 20%,
+		var(--wp--preset--color--brass) 80%,
+		transparent 100%
+	) !important;
+	opacity: 0.55;
+}
+
+.venuestack-footer-bar {
+	width: 100%;
+}
+
+.venuestack-footer-browse .wp-block-button__link {
+	background: transparent !important;
+	color: var(--wp--preset--color--plaster) !important;
+	box-shadow: inset 0 0 0 1px var(--wp--preset--color--brass);
+}
+
+.venuestack-footer-browse .wp-block-button__link:hover,
+.venuestack-footer-browse .wp-block-button__link:focus {
+	background: var(--wp--preset--color--brass) !important;
+	color: var(--wp--preset--color--plaster) !important;
+}

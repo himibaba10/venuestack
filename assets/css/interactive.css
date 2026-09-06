@@ -1,0 +1,131 @@
+/**
+ * Hover / focus affordances for interactive UI.
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+	.wp-element-button,
+	.wp-block-button__link,
+	.venuestack-primary-nav a,
+	.venuestack-brand__title a,
+	.venuestack-site-footer a,
+	.venuestack-space-amenities__list a {
+		transition:
+			background-color 0.2s ease,
+			color 0.2s ease,
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			transform 0.2s ease,
+			opacity 0.2s ease;
+	}
+}
+
+/* —— Solid / fill buttons (brass → evergreen) —— */
+.wp-block-button:not(.is-style-outline) .wp-element-button:hover,
+.wp-block-button:not(.is-style-outline) .wp-element-button:focus,
+.wp-block-button.is-style-fill .wp-element-button:hover,
+.wp-block-button.is-style-fill .wp-element-button:focus {
+	background-color: var(--wp--preset--color--evergreen) !important;
+	color: var(--wp--preset--color--plaster) !important;
+	border-color: var(--wp--preset--color--evergreen) !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.wp-block-button:not(.is-style-outline) .wp-element-button:hover,
+	.wp-block-button.is-style-fill .wp-element-button:hover {
+		transform: translateY(-1px);
+	}
+
+	.wp-block-button:not(.is-style-outline) .wp-element-button:active,
+	.wp-block-button.is-style-fill .wp-element-button:active {
+		transform: translateY(0);
+	}
+}
+
+/* —— Outline buttons (fill brass) —— */
+.wp-block-button.is-style-outline .wp-element-button:hover,
+.wp-block-button.is-style-outline .wp-element-button:focus {
+	background-color: var(--wp--preset--color--brass) !important;
+	color: var(--wp--preset--color--plaster) !important;
+	border-color: var(--wp--preset--color--brass) !important;
+	box-shadow: none;
+}
+
+/* Hero outline on dusk — same fill, keep plaster text */
+.venuestack-hero-jump .wp-block-button__link:hover,
+.venuestack-hero-jump .wp-block-button__link:focus {
+	background: var(--wp--preset--color--brass) !important;
+	color: var(--wp--preset--color--plaster) !important;
+	box-shadow: inset 0 0 0 1px var(--wp--preset--color--brass);
+}
+
+/* Footer outline on dusk */
+.venuestack-footer-browse .wp-block-button__link:hover,
+.venuestack-footer-browse .wp-block-button__link:focus {
+	background: var(--wp--preset--color--brass) !important;
+	color: var(--wp--preset--color--plaster) !important;
+}
+
+/* —— Header brand + nav —— */
+.venuestack-brand__title a:hover,
+.venuestack-brand__title a:focus {
+	color: var(--wp--preset--color--ember) !important;
+}
+
+.venuestack-header-actions .wp-block-navigation a:hover,
+.venuestack-header-actions .wp-block-navigation a:focus,
+.venuestack-primary-nav a:hover,
+.venuestack-primary-nav a:focus {
+	color: var(--wp--preset--color--ember);
+}
+
+.venuestack-header-actions .wp-block-navigation a:hover,
+.venuestack-primary-nav a:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.28em;
+	text-decoration-thickness: 1px;
+}
+
+/* —— Footer links —— */
+.venuestack-site-footer a:hover,
+.venuestack-site-footer a:focus {
+	color: var(--wp--preset--color--brass);
+}
+
+.venuestack-footer-nav .wp-block-navigation-item__content:hover,
+.venuestack-footer-nav .wp-block-navigation-item__content:focus {
+	color: var(--wp--preset--color--brass);
+	text-decoration: underline;
+	text-underline-offset: 0.28em;
+}
+
+.venuestack-footer-brand a:hover,
+.venuestack-footer-brand a:focus {
+	color: var(--wp--preset--color--brass) !important;
+}
+
+/* —— Amenity chips —— */
+.venuestack-space-amenities__list a:hover,
+.venuestack-space-amenities__list a:focus {
+	background: color-mix(in srgb, var(--wp--preset--color--brass) 14%, var(--wp--preset--color--plaster));
+	border-color: var(--wp--preset--color--brass);
+	color: var(--wp--preset--color--ink);
+	box-shadow: inset 0 0 0 1px var(--wp--preset--color--brass);
+	text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.venuestack-space-amenities__list a:hover {
+		transform: translateY(-1px);
+	}
+}
+
+/* —— Focus ring (keyboard) —— */
+.wp-element-button:focus-visible,
+.wp-block-button__link:focus-visible,
+.venuestack-primary-nav a:focus-visible,
+.venuestack-brand__title a:focus-visible,
+.venuestack-site-footer a:focus-visible,
+.venuestack-space-amenities__list a:focus-visible {
+	outline: 2px solid var(--wp--preset--color--brass);
+	outline-offset: 3px;
+}

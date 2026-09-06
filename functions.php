@@ -10,15 +10,40 @@ defined( 'ABSPATH' ) || exit;
 define( 'VENUESTACK_VERSION', wp_get_theme()->get( 'Version' ) ?: '0.1.0' );
 
 /**
- * Enqueue built theme assets when present.
+ * Enqueue theme styles and built assets.
  */
 function venuestack_enqueue_assets(): void {
+	$theme_uri = get_template_directory_uri();
+
 	wp_enqueue_style(
 		'venuestack-style',
 		get_stylesheet_uri(),
 		array(),
 		VENUESTACK_VERSION
 	);
+
+	wp_enqueue_style(
+		'venuestack-header-footer',
+		$theme_uri . '/assets/css/header-footer.css',
+		array( 'venuestack-style' ),
+		VENUESTACK_VERSION
+	);
+
+	wp_enqueue_style(
+		'venuestack-interactive',
+		$theme_uri . '/assets/css/interactive.css',
+		array( 'venuestack-header-footer' ),
+		VENUESTACK_VERSION
+	);
+
+	if ( is_singular( 'venue_space' ) ) {
+		wp_enqueue_style(
+			'venuestack-single-space',
+			$theme_uri . '/assets/css/single-space.css',
+			array( 'venuestack-style' ),
+			VENUESTACK_VERSION
+		);
+	}
 
 	$asset_file = get_template_directory() . '/build/index.asset.php';
 
@@ -30,7 +55,7 @@ function venuestack_enqueue_assets(): void {
 
 	wp_enqueue_script(
 		'venuestack-theme',
-		get_template_directory_uri() . '/build/index.js',
+		$theme_uri . '/build/index.js',
 		$asset['dependencies'] ?? array(),
 		$asset['version'] ?? VENUESTACK_VERSION,
 		true
@@ -40,7 +65,7 @@ function venuestack_enqueue_assets(): void {
 	if ( file_exists( $style_path ) ) {
 		wp_enqueue_style(
 			'venuestack-theme',
-			get_template_directory_uri() . '/build/index.css',
+			$theme_uri . '/build/index.css',
 			array( 'venuestack-style' ),
 			$asset['version'] ?? VENUESTACK_VERSION
 		);
