@@ -18,12 +18,16 @@
 	-webkit-backdrop-filter: blur(10px);
 }
 
-.venuestack-brand__title a {
-	text-decoration: none;
+.venuestack-brand__logo .custom-logo-link,
+.venuestack-footer-brand .custom-logo-link {
+	display: inline-flex;
+	line-height: 0;
 }
 
-.venuestack-brand__tagline {
-	margin: 0;
+.venuestack-brand__logo .custom-logo,
+.venuestack-footer-brand .custom-logo {
+	height: auto;
+	object-fit: contain;
 }
 
 .venuestack-header-actions .wp-block-navigation a {
@@ -47,10 +51,6 @@ body .wp-block-woocommerce-customer-account {
 }
 
 @media (max-width: 781px) {
-	.venuestack-brand__tagline {
-		display: none;
-	}
-
 	.venuestack-header-cta {
 		display: none;
 	}
@@ -74,10 +74,6 @@ body .wp-block-woocommerce-customer-account {
 .venuestack-site-footer a:hover,
 .venuestack-site-footer a:focus {
 	color: var(--wp--preset--color--brass);
-}
-
-.venuestack-footer-brand a {
-	text-decoration: none;
 }
 
 .venuestack-footer-nav .wp-block-navigation-item__content {
