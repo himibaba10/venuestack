@@ -10,13 +10,14 @@ defined('ABSPATH') || exit;
 /**
  * Styles for frontend + Site Editor canvas.
  *
- * enqueue_block_assets runs in both contexts. Template CSS was previously
- * gated on is_front_page() / is_singular(), which are false in the editor —
- * so the canvas rendered unstyled markup.
+ * Always load shared chrome. Page-specific CSS loads in the editor always,
+ * but only on matching templates on the front end.
  */
 function venuestack_enqueue_block_assets(): void
 {
 	$theme_uri = get_template_directory_uri();
+	$in_editor = is_admin()
+		|| ( defined( 'IFRAME_REQUEST' ) && IFRAME_REQUEST );
 
 	wp_enqueue_style(
 		'venuestack-header-footer',
@@ -28,33 +29,42 @@ function venuestack_enqueue_block_assets(): void
 	wp_enqueue_style(
 		'venuestack-interactive',
 		$theme_uri . '/assets/css/interactive.css',
-		array('venuestack-header-footer'),
+		array( 'venuestack-header-footer' ),
 		VENUESTACK_VERSION
 	);
 
-	// Scoped to .venuestack-home — safe in editor and on other templates.
-	wp_enqueue_style(
-		'venuestack-home',
-		$theme_uri . '/assets/css/home.css',
-		array('venuestack-interactive'),
-		VENUESTACK_VERSION
-	);
+	$load_home = $in_editor
+		|| is_front_page()
+		|| is_post_type_archive( 'venue_space' );
+	$load_single = $in_editor || is_singular( 'venue_space' );
+	$load_directory = $in_editor || is_post_type_archive( 'venue_space' );
 
-	// Scoped to .venuestack-space / .single-venue_space.
-	wp_enqueue_style(
-		'venuestack-single-space',
-		$theme_uri . '/assets/css/single-space.css',
-		array('venuestack-interactive'),
-		VENUESTACK_VERSION
-	);
+	if ( $load_home ) {
+		wp_enqueue_style(
+			'venuestack-home',
+			$theme_uri . '/assets/css/home.css',
+			array( 'venuestack-interactive' ),
+			VENUESTACK_VERSION
+		);
+	}
 
-	// Scoped to .venuestack-directory / archive-venue_space.
-	wp_enqueue_style(
-		'venuestack-directory',
-		$theme_uri . '/assets/css/directory.css',
-		array( 'venuestack-interactive', 'venuestack-home' ),
-		VENUESTACK_VERSION
-	);
+	if ( $load_single ) {
+		wp_enqueue_style(
+			'venuestack-single-space',
+			$theme_uri . '/assets/css/single-space.css',
+			array( 'venuestack-interactive' ),
+			VENUESTACK_VERSION
+		);
+	}
+
+	if ( $load_directory ) {
+		wp_enqueue_style(
+			'venuestack-directory',
+			$theme_uri . '/assets/css/directory.css',
+			array( 'venuestack-interactive', 'venuestack-home' ),
+			VENUESTACK_VERSION
+		);
+	}
 }
 add_action('enqueue_block_assets', 'venuestack_enqueue_block_assets');
 
@@ -146,3 +156,36 @@ function venuestack_enqueue_assets(): void
 	}
 }
 add_action('wp_enqueue_scripts', 'venuestack_enqueue_assets');
+
+/**
+ * Drop WP emoji detection/polyfill scripts and related styles.
+ *
+ * Modern browsers render emoji natively; this script is unused weight.
+ */
+function venuestack_disable_emojis(): void {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	add_filter( 'emoji_svg_url', '__return_false' );
+}
+add_action( 'init', 'venuestack_disable_emojis' );
+
+/**
+ * Strip unused front-end head tags (tiny, but free).
+ */
+function venuestack_trim_wp_head(): void {
+	remove_action( 'wp_head', 'wp_generator' );
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+	remove_action( 'wp_head', 'feed_links', 2 );
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
+	remove_action( 'template_redirect', 'rest_output_link_header', 11 );
+}
+add_action( 'init', 'venuestack_trim_wp_head' );
