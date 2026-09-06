@@ -15,20 +15,59 @@ export function registerVenueStackVariations() {
 		name: 'venuestack-eyebrow',
 		title: __( 'Eyebrow', 'venuestack' ),
 		description: __(
-			'Uppercase section label in brass — sits above a heading.',
+			'Uppercase section label — uses the Eyebrow paragraph style.',
 			'venuestack'
 		),
 		category: 'text',
 		icon: 'tag',
 		keywords: [ 'label', 'kicker', 'overline', 'eyebrow' ],
 		attributes: {
-			className: 'venuestack-eyebrow',
+			className: 'is-style-eyebrow',
 			textColor: 'brass',
 			content: '',
 		},
 		scope: [ 'inserter', 'block', 'transform' ],
 		isActive: ( blockAttributes ) =>
-			hasClass( blockAttributes.className, 'venuestack-eyebrow' ),
+			hasClass( blockAttributes.className, 'is-style-eyebrow' ),
+	} );
+
+	registerBlockVariation( 'core/paragraph', {
+		name: 'venuestack-lede',
+		title: __( 'Lede', 'venuestack' ),
+		description: __(
+			'Supporting lead under a heading — Lede paragraph style.',
+			'venuestack'
+		),
+		category: 'text',
+		icon: 'editor-paragraph',
+		keywords: [ 'lead', 'dek', 'intro', 'lede' ],
+		attributes: {
+			className: 'is-style-lede',
+			content: '',
+		},
+		scope: [ 'inserter', 'block', 'transform' ],
+		isActive: ( blockAttributes ) =>
+			hasClass( blockAttributes.className, 'is-style-lede' ),
+	} );
+
+	registerBlockVariation( 'core/paragraph', {
+		name: 'venuestack-body',
+		title: __( 'Body', 'venuestack' ),
+		description: __(
+			'Small supporting copy — Body paragraph style.',
+			'venuestack'
+		),
+		category: 'text',
+		icon: 'editor-paragraph',
+		keywords: [ 'body', 'caption', 'support' ],
+		attributes: {
+			className: 'is-style-body',
+			textColor: 'muted',
+			content: '',
+		},
+		scope: [ 'inserter', 'block', 'transform' ],
+		isActive: ( blockAttributes ) =>
+			hasClass( blockAttributes.className, 'is-style-body' ),
 	} );
 
 	registerBlockVariation( 'core/button', {

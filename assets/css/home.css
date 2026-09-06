@@ -11,12 +11,6 @@
   overflow: hidden;
 }
 
-/* Single-line max width; parent group is wider for the H1 */
-.venuestack-home-hero__lede,
-.venuestack-home-hero__lede p {
-  max-width: 36rem;
-}
-
 /* Hero outline hover differs from global outline (evergreen, not brass) */
 .venuestack-home-hero .is-style-outline .wp-block-button__link:hover,
 .venuestack-home-hero .is-style-outline .wp-block-button__link:focus {
@@ -113,12 +107,63 @@
   );
 }
 
-/* Icon SVGs: fill paths (WP Icons API strips stroke) */
-.venuestack-home-cap .wp-block-icon svg {
+/* Capability card icons
+ * WP Icon paints background/padding onto the SVG — leave width/padding to the
+ * editor; only enforce fill + hover. */
+.venuestack-home-cap__icon.wp-block-icon {
+  display: inline-flex;
+  line-height: 0;
+  color: var(--wp--preset--color--plaster);
+}
+
+.venuestack-home-cap__icon.wp-block-icon svg {
   display: block;
   overflow: visible;
+  box-sizing: content-box;
+  color: var(--wp--preset--color--plaster);
   fill: currentColor;
   stroke: none;
+}
+
+/* Card hover — icon tile + heading respond together */
+@media (prefers-reduced-motion: no-preference) {
+  .venuestack-home-cap {
+    transition:
+      background-color 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  .venuestack-home-cap__icon.wp-block-icon svg {
+    transition: background-color 0.22s ease;
+  }
+
+  .venuestack-home-cap .wp-block-heading {
+    transition: color 0.22s ease;
+  }
+
+  .venuestack-home-cap:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.venuestack-home-cap:hover {
+  background-color: var(--wp--preset--color--plaster) !important;
+}
+
+.venuestack-home-cap:hover .venuestack-home-cap__icon.wp-block-icon svg {
+  background-color: var(--wp--preset--color--evergreen) !important;
+}
+
+.venuestack-home-cap:hover .wp-block-heading {
+  color: var(--wp--preset--color--brass) !important;
+}
+
+.venuestack-home-cap:focus-within {
+  background-color: var(--wp--preset--color--plaster) !important;
+}
+
+.venuestack-home-cap:focus-within .venuestack-home-cap__icon.wp-block-icon svg {
+  background-color: var(--wp--preset--color--evergreen) !important;
 }
 
 /* Spaces directory — decorative wash */

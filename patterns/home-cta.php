@@ -13,8 +13,8 @@
 <h2 class="wp-block-heading has-text-align-center has-plaster-color has-text-color">Hold your date before someone else does.</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"plaster-muted"} -->
-<p class="has-text-align-center has-plaster-muted-color has-text-color">Check live availability across every space, add catering, and confirm in a single flow.</p>
+<!-- wp:paragraph {"align":"center","className":"is-style-lede","textColor":"plaster-muted"} -->
+<p class="has-text-align-center is-style-lede has-plaster-muted-color has-text-color">Check live availability across every space, add catering, and confirm in a single flow.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
