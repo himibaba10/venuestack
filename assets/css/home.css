@@ -306,6 +306,12 @@
   );
 }
 
+.venuestack-home-step {
+  border-top: 1px solid
+    color-mix(in srgb, var(--wp--preset--color--ink) 20%, transparent);
+  padding-top: var(--wp--preset--spacing--30);
+}
+
 .venuestack-home-step__n {
   display: block;
 }
