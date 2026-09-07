@@ -48,8 +48,10 @@ a.wc-block-customer-account__account-icon,
 	}
 
 	/* 4-up space specs: 2×2 on mobile */
-	.venuestack-space:not(.venuestack-package) .venuestack-space-specs__cell:nth-child(3),
-	.venuestack-space:not(.venuestack-package) .venuestack-space-specs__cell:nth-child(4) {
+	.venuestack-space:not(.venuestack-package)
+		.venuestack-space-specs__cell:nth-child(3),
+	.venuestack-space:not(.venuestack-package)
+		.venuestack-space-specs__cell:nth-child(4) {
 		border-bottom: none !important;
 	}
 
@@ -87,13 +89,13 @@ a.wc-block-customer-account__account-icon,
 			circle at 50% 118%,
 			color-mix(
 					in srgb,
-					var(--wp--preset--color--plaster) 14%,
+					var(--wp--preset--color--plaster) 5%,
 					transparent
 				)
 				0,
 			color-mix(
 					in srgb,
-					var(--wp--preset--color--plaster) 14%,
+					var(--wp--preset--color--plaster) 0%,
 					transparent
 				)
 				1px,
