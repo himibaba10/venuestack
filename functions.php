@@ -18,4 +18,5 @@ require_once "$venuestack_inc/home-stats.php";
 require_once "$venuestack_inc/synced-patterns.php";
 require_once "$venuestack_inc/block-styles.php";
 require_once "$venuestack_inc/editor-compat.php";
+require_once "$venuestack_inc/auth.php";
 require_once "$venuestack_inc/assets.php";
