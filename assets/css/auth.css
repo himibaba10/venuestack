@@ -49,6 +49,20 @@
 	font-size: var(--wp--preset--font-size--small, 0.875rem);
 }
 
+.venuestack-auth-form__notice {
+	margin: 0 0 1rem;
+	padding: 0.75rem 0.9rem;
+	border: 1px solid var(--wp--preset--color--evergreen, #2f3b34);
+	background: color-mix(
+		in srgb,
+		var(--wp--preset--color--evergreen, #2f3b34) 10%,
+		var(--wp--preset--color--plaster, #f2ece3)
+	);
+	color: var(--wp--preset--color--ink, #211d1b);
+	font-family: var(--wp--preset--font-family--work-sans), sans-serif;
+	font-size: var(--wp--preset--font-size--small, 0.875rem);
+}
+
 .venuestack-auth-form__fields {
 	display: flex;
 	flex-direction: column;
