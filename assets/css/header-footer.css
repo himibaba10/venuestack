@@ -38,6 +38,15 @@
 	white-space: nowrap;
 }
 
+/* My bookings — only when WP adds body.logged-in */
+.venuestack-site-header .venuestack-nav-my-bookings {
+	display: none;
+}
+
+body.logged-in .venuestack-site-header .venuestack-nav-my-bookings {
+	display: block;
+}
+
 /* Hide WC customer chrome — VenueStack uses WC as headless payments. */
 .venuestack-site-header .wc-block-mini-cart,
 .venuestack-site-header .widget_shopping_cart,

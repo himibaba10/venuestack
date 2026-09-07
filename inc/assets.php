@@ -44,6 +44,7 @@ function venuestack_enqueue_block_assets(): void
 		|| is_post_type_archive( 'venue_space' )
 		|| is_post_type_archive( 'event_package' );
 	$load_contact = $in_editor || is_page( 'contact' );
+	$load_my_bookings = $in_editor || is_page( 'my-bookings' );
 	$load_order = $in_editor
 		|| ( function_exists( 'is_wc_endpoint_url' ) && is_wc_endpoint_url( 'order-received' ) );
 
@@ -78,6 +79,15 @@ function venuestack_enqueue_block_assets(): void
 		wp_enqueue_style(
 			'venuestack-contact',
 			$theme_uri . '/assets/css/contact.css',
+			array( 'venuestack-interactive' ),
+			VENUESTACK_VERSION
+		);
+	}
+
+	if ( $load_my_bookings ) {
+		wp_enqueue_style(
+			'venuestack-my-bookings',
+			$theme_uri . '/assets/css/my-bookings.css',
 			array( 'venuestack-interactive' ),
 			VENUESTACK_VERSION
 		);
