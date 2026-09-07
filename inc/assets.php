@@ -46,6 +46,14 @@ function venuestack_enqueue_block_assets(): void
 	$load_contact = $in_editor || is_page( 'contact' );
 	$load_my_bookings = $in_editor || is_page( 'my-bookings' );
 	$load_auth = $in_editor || is_page( array( 'login', 'register', 'lost-password', 'reset-password' ) );
+	$load_blog = $in_editor
+		|| is_home()
+		|| is_singular( 'post' )
+		|| is_category()
+		|| is_tag()
+		|| is_author()
+		|| is_date()
+		|| ( is_archive() && ! is_post_type_archive() && ! is_tax() );
 	$load_order = $in_editor
 		|| ( function_exists( 'is_wc_endpoint_url' ) && is_wc_endpoint_url( 'order-received' ) );
 
@@ -98,6 +106,15 @@ function venuestack_enqueue_block_assets(): void
 		wp_enqueue_style(
 			'venuestack-auth',
 			$theme_uri . '/assets/css/auth.css',
+			array( 'venuestack-interactive' ),
+			VENUESTACK_VERSION
+		);
+	}
+
+	if ( $load_blog ) {
+		wp_enqueue_style(
+			'venuestack-blog',
+			$theme_uri . '/assets/css/blog.css',
 			array( 'venuestack-interactive' ),
 			VENUESTACK_VERSION
 		);

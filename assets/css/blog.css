@@ -1,0 +1,112 @@
+/**
+ * Journal / blog list + single post.
+ */
+
+.venuestack-blog__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.venuestack-blog-item {
+	border-bottom: 1px solid var(--wp--preset--color--rule, #d9d0c3);
+}
+
+.venuestack-blog-item:first-child {
+	border-top: 1px solid var(--wp--preset--color--rule, #d9d0c3);
+}
+
+.venuestack-blog-item__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.venuestack-blog-item__title a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.venuestack-blog-item__title a:hover,
+.venuestack-blog-item__title a:focus {
+	color: var(--wp--preset--color--brass, #a6763d);
+}
+
+.venuestack-blog-item__excerpt {
+	margin: 0;
+}
+
+.venuestack-blog-item__cats a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.venuestack-blog-item__cats a:hover,
+.venuestack-blog-item__cats a:focus {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.venuestack-blog__pagination {
+	margin-top: var(--wp--preset--spacing--50, 2.5rem);
+	font-family: var(--wp--preset--font-family--work-sans), sans-serif;
+	font-size: var(--wp--preset--font-size--small, 0.875rem);
+}
+
+.venuestack-blog__pagination a {
+	color: var(--wp--preset--color--brass, #a6763d);
+	text-decoration: none;
+}
+
+.venuestack-blog__pagination a:hover,
+.venuestack-blog__pagination a:focus {
+	color: var(--wp--preset--color--evergreen, #2f3b34);
+}
+
+.venuestack-blog-single__media {
+	margin: 0;
+}
+
+.venuestack-blog-single__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.venuestack-blog-single__content .wp-block-post-content > *:first-child {
+	margin-top: 0;
+}
+
+.venuestack-blog-single__content .wp-block-post-content p,
+.venuestack-blog-single__content .wp-block-post-content li {
+	font-family: var(--wp--preset--font-family--work-sans), sans-serif;
+	font-size: var(--wp--preset--font-size--medium, 1rem);
+	line-height: 1.65;
+	color: var(--wp--preset--color--ink, #211d1b);
+}
+
+.venuestack-blog-single__content .wp-block-post-content h2,
+.venuestack-blog-single__content .wp-block-post-content h3 {
+	font-family: var(--wp--preset--font-family--playfair-display), serif;
+	color: var(--wp--preset--color--ink, #211d1b);
+}
+
+.venuestack-blog-single__rule {
+	margin: var(--wp--preset--spacing--50, 2.5rem) 0;
+}
+
+.venuestack-blog-single__content a {
+	color: var(--wp--preset--color--brass, #a6763d);
+}
+
+@media (max-width: 781px) {
+	.venuestack-blog-item .wp-block-columns {
+		flex-direction: column;
+	}
+
+	.venuestack-blog-item .wp-block-column {
+		flex-basis: 100% !important;
+	}
+}
