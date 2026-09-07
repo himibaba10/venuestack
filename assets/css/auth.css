@@ -32,14 +32,18 @@
 
 .venuestack-auth-form {
 	width: 100%;
-	margin-top: 0.35rem;
+	margin-block-start: 0 !important;
 }
 
 .venuestack-auth-form__error {
 	margin: 0 0 1rem;
 	padding: 0.75rem 0.9rem;
 	border: 1px solid var(--wp--preset--color--brass, #a6763d);
-	background: color-mix(in srgb, var(--wp--preset--color--brass, #a6763d) 10%, var(--wp--preset--color--plaster, #f2ece3));
+	background: color-mix(
+		in srgb,
+		var(--wp--preset--color--brass, #a6763d) 10%,
+		var(--wp--preset--color--plaster, #f2ece3)
+	);
 	color: var(--wp--preset--color--ink, #211d1b);
 	font-family: var(--wp--preset--font-family--work-sans), sans-serif;
 	font-size: var(--wp--preset--font-size--small, 0.875rem);
@@ -50,6 +54,13 @@
 	flex-direction: column;
 	gap: 1rem;
 	margin: 0;
+
+	& > p {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		margin: 0;
+	}
 }
 
 .venuestack-auth-form__row {
@@ -82,7 +93,12 @@
 .venuestack-auth-form__input {
 	width: 100%;
 	box-sizing: border-box;
-	border: 1px solid color-mix(in srgb, var(--wp--preset--color--ink, #211d1b) 22%, var(--wp--preset--color--rule, #d9d0c3));
+	border: 1px solid
+		color-mix(
+			in srgb,
+			var(--wp--preset--color--ink, #211d1b) 22%,
+			var(--wp--preset--color--rule, #d9d0c3)
+		);
 	border-radius: 0;
 	background: var(--wp--preset--color--plaster, #f2ece3);
 	color: var(--wp--preset--color--ink, #211d1b);
