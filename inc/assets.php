@@ -35,9 +35,14 @@ function venuestack_enqueue_block_assets(): void
 
 	$load_home = $in_editor
 		|| is_front_page()
-		|| is_post_type_archive( 'venue_space' );
-	$load_single = $in_editor || is_singular( 'venue_space' );
-	$load_directory = $in_editor || is_post_type_archive( 'venue_space' );
+		|| is_post_type_archive( 'venue_space' )
+		|| is_post_type_archive( 'event_package' );
+	$load_single = $in_editor
+		|| is_singular( 'venue_space' )
+		|| is_singular( 'event_package' );
+	$load_directory = $in_editor
+		|| is_post_type_archive( 'venue_space' )
+		|| is_post_type_archive( 'event_package' );
 	$load_contact = $in_editor || is_page( 'contact' );
 	$load_order = $in_editor
 		|| ( function_exists( 'is_wc_endpoint_url' ) && is_wc_endpoint_url( 'order-received' ) );
@@ -141,11 +146,13 @@ function venuestack_enqueue_assets(): void
 		VENUESTACK_VERSION
 	);
 
-	// Marketing motion: homepage, single space, spaces directory.
+	// Marketing motion: homepage, spaces/packages archive + single.
 	if (
 		! is_front_page() &&
 		! is_singular( 'venue_space' ) &&
-		! is_post_type_archive( 'venue_space' )
+		! is_singular( 'event_package' ) &&
+		! is_post_type_archive( 'venue_space' ) &&
+		! is_post_type_archive( 'event_package' )
 	) {
 		return;
 	}

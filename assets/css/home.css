@@ -244,7 +244,7 @@
 	color: var(--wp--preset--color--ember);
 }
 
-/* Space-type badge: absolute overlay on the image */
+/* Space-type / package badge: absolute overlay on the image */
 .venuestack-home-space-type {
 	position: absolute;
 	top: 0;
@@ -269,6 +269,21 @@
 
 .venuestack-home-space-type .wp-block-post-terms__separator {
 	display: none;
+}
+
+/* Package cards without a featured image still need a media plane */
+.venuestack-package-card .wp-block-post-featured-image:empty,
+.venuestack-package-card .wp-block-post-featured-image:not(:has(img)) {
+	display: block;
+	aspect-ratio: 4 / 3;
+	background:
+		linear-gradient(
+			145deg,
+			color-mix(in srgb, var(--wp--preset--color--evergreen) 88%, black) 0%,
+			var(--wp--preset--color--evergreen) 55%,
+			color-mix(in srgb, var(--wp--preset--color--brass) 35%, var(--wp--preset--color--evergreen))
+				100%
+		);
 }
 
 .venuestack-home-space-card__media {

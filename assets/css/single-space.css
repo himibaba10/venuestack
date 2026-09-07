@@ -47,8 +47,14 @@ a.wc-block-customer-account__account-icon,
 		padding-block: var(--wp--preset--spacing--30) !important;
 	}
 
-	.venuestack-space-specs__cell:nth-child(3),
-	.venuestack-space-specs__cell:nth-child(4) {
+	/* 4-up space specs: 2×2 on mobile */
+	.venuestack-space:not(.venuestack-package) .venuestack-space-specs__cell:nth-child(3),
+	.venuestack-space:not(.venuestack-package) .venuestack-space-specs__cell:nth-child(4) {
+		border-bottom: none !important;
+	}
+
+	/* 3-up package specs: single column */
+	.venuestack-package .venuestack-space-specs__cell:last-child {
 		border-bottom: none !important;
 	}
 }
@@ -313,4 +319,29 @@ a.wc-block-customer-account__account-icon,
 	.venuestack-booking-panel__grid {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* —— Package inclusions chips —— */
+.venuestack-package-inclusions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	align-items: stretch;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.venuestack-package-inclusions__item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.55rem 0.95rem;
+	background: var(--wp--preset--color--plaster);
+	color: var(--wp--preset--color--ink);
+	border: 1px solid var(--wp--preset--color--rule);
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	line-height: 1.2;
 }

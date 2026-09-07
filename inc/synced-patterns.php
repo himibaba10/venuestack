@@ -24,6 +24,7 @@ function venuestack_synced_pattern_map(): array {
 	return array(
 		'venuestack/capability-card' => 'capability-card.php',
 		'venuestack/space-card'      => 'space-card.php',
+		'venuestack/package-card'    => 'package-card.php',
 		'venuestack/step-card'       => 'step-card.php',
 		'venuestack/page-banner'     => 'page-banner.php',
 	);
@@ -38,6 +39,7 @@ function venuestack_synced_pattern_titles(): array {
 	return array(
 		'venuestack/capability-card' => __( 'Capability card', 'venuestack' ),
 		'venuestack/space-card'      => __( 'Space card', 'venuestack' ),
+		'venuestack/package-card'    => __( 'Package card', 'venuestack' ),
 		'venuestack/step-card'       => __( 'Step card', 'venuestack' ),
 		'venuestack/page-banner'     => __( 'Page banner', 'venuestack' ),
 	);
