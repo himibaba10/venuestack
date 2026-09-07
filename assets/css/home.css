@@ -8,375 +8,390 @@
 
 /* —— Hero —— */
 .venuestack-home-hero.wp-block-cover {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 /* Hero outline hover differs from global outline (evergreen, not brass) */
 .venuestack-home-hero .is-style-outline .wp-block-button__link:hover,
 .venuestack-home-hero .is-style-outline .wp-block-button__link:focus {
-  background: var(--wp--preset--color--evergreen) !important;
-  border-color: var(--wp--preset--color--evergreen) !important;
-  color: var(--wp--preset--color--plaster) !important;
+	background: var(--wp--preset--color--evergreen) !important;
+	border-color: var(--wp--preset--color--evergreen) !important;
+	color: var(--wp--preset--color--plaster) !important;
 }
 
 /* —— Stats: decorative wash + mobile divider reflow —— */
 .venuestack-home-stats {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .venuestack-home-stats::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.06;
-  pointer-events: none;
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--wp--preset--color--brass) 0,
-    var(--wp--preset--color--brass) 1px,
-    transparent 1px,
-    transparent 12px
-  );
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: 0.06;
+	pointer-events: none;
+	background-image: repeating-linear-gradient(
+		45deg,
+		var(--wp--preset--color--brass) 0,
+		var(--wp--preset--color--brass) 1px,
+		transparent 1px,
+		transparent 12px
+	);
 }
 
 .venuestack-home-stats__row {
-  position: relative;
-  z-index: 1;
-  width: 100%;
+	position: relative;
+	z-index: 1;
+	width: 100%;
 }
 
 @media (max-width: 781px) {
-  .venuestack-home-stats__cell {
-    border-right: none !important;
-    border-bottom: 1px solid var(--wp--preset--color--rule) !important;
-    padding-block: var(--wp--preset--spacing--30) !important;
-  }
+	.venuestack-home-stats__cell {
+		border-right: none !important;
+		border-bottom: 1px solid var(--wp--preset--color--rule) !important;
+		padding-block: var(--wp--preset--spacing--30) !important;
+	}
 
-  .venuestack-home-stats__cell:nth-child(3),
-  .venuestack-home-stats__cell:nth-child(4) {
-    border-bottom: none !important;
-  }
+	.venuestack-home-stats__cell:nth-child(3),
+	.venuestack-home-stats__cell:nth-child(4) {
+		border-bottom: none !important;
+	}
 }
 
 /* —— Section shell (stacking for decorative ::before/::after) —— */
 .venuestack-home-section {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .venuestack-home-section__inner {
-  position: relative;
-  z-index: 1;
-  width: 100%;
+	position: relative;
+	z-index: 1;
+	width: 100%;
 }
 
 /* Capabilities — decorative wash behind the grid */
 .venuestack-home-capabilities::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image: radial-gradient(
-    60% 60% at 50% 0%,
-    color-mix(in srgb, var(--wp--preset--color--brass) 22%, transparent) 0%,
-    transparent 70%
-  );
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-image: radial-gradient(
+		60% 60% at 50% 0%,
+		color-mix(in srgb, var(--wp--preset--color--brass) 22%, transparent) 0%,
+		transparent 70%
+	);
 }
 
 .venuestack-home-capabilities::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image: radial-gradient(
-    var(--wp--preset--color--brass) 1px,
-    transparent 1px
-  );
-  background-size: 22px 22px;
-  opacity: 0.14;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-image: radial-gradient(
+		var(--wp--preset--color--brass) 1px,
+		transparent 1px
+	);
+	background-size: 22px 22px;
+	opacity: 0.14;
+	mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		black 20%,
+		black 80%,
+		transparent
+	);
 }
 
 /* Capability card icons
  * WP Icon paints background/padding onto the SVG — leave width/padding to the
  * editor; only enforce fill + hover. */
 .venuestack-home-cap__icon.wp-block-icon {
-  display: inline-flex;
-  line-height: 0;
-  color: var(--wp--preset--color--plaster);
+	display: inline-flex;
+	line-height: 0;
+	color: var(--wp--preset--color--plaster);
 }
 
 .venuestack-home-cap__icon.wp-block-icon svg {
-  display: block;
-  overflow: visible;
-  box-sizing: content-box;
-  color: var(--wp--preset--color--plaster);
-  fill: currentColor;
-  stroke: none;
+	display: block;
+	overflow: visible;
+	box-sizing: content-box;
+	color: var(--wp--preset--color--plaster);
+	fill: currentColor;
+	stroke: none;
 }
 
 /* Card hover — icon tile + heading respond together */
 @media (prefers-reduced-motion: no-preference) {
-  .venuestack-home-cap {
-    transition:
-      background-color 0.22s ease,
-      transform 0.22s ease;
-  }
+	.venuestack-home-cap {
+		transition:
+			background-color 0.22s ease,
+			transform 0.22s ease;
+	}
 
-  .venuestack-home-cap__icon.wp-block-icon svg {
-    transition: background-color 0.22s ease;
-  }
+	.venuestack-home-cap__icon.wp-block-icon svg {
+		transition: background-color 0.22s ease;
+	}
 
-  .venuestack-home-cap .wp-block-heading {
-    transition: color 0.22s ease;
-  }
+	.venuestack-home-cap .wp-block-heading {
+		transition: color 0.22s ease;
+	}
 
-  .venuestack-home-cap:hover {
-    transform: translateY(-2px);
-  }
+	.venuestack-home-cap:hover {
+		transform: translateY(-2px);
+	}
 }
 
 .venuestack-home-cap:hover {
-  background-color: var(--wp--preset--color--plaster) !important;
+	background-color: var(--wp--preset--color--plaster) !important;
 }
 
 .venuestack-home-cap:hover .venuestack-home-cap__icon.wp-block-icon svg {
-  background-color: var(--wp--preset--color--evergreen) !important;
+	background-color: var(--wp--preset--color--evergreen) !important;
 }
 
 .venuestack-home-cap:hover .wp-block-heading {
-  color: var(--wp--preset--color--brass) !important;
+	color: var(--wp--preset--color--brass) !important;
 }
 
 .venuestack-home-cap:focus-within {
-  background-color: var(--wp--preset--color--plaster) !important;
+	background-color: var(--wp--preset--color--plaster) !important;
 }
 
 .venuestack-home-cap:focus-within .venuestack-home-cap__icon.wp-block-icon svg {
-  background-color: var(--wp--preset--color--evergreen) !important;
+	background-color: var(--wp--preset--color--evergreen) !important;
 }
 
 /* Spaces directory — decorative wash */
 .venuestack-home-spaces::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(
-      55% 70% at 85% 20%,
-      color-mix(in srgb, var(--wp--preset--color--evergreen) 16%, transparent)
-        0%,
-      transparent 70%
-    ),
-    linear-gradient(
-      to right,
-      var(--wp--preset--color--ink) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      var(--wp--preset--color--ink) 1px,
-      transparent 1px
-    );
-  background-size:
-    auto,
-    72px 72px,
-    72px 72px;
-  opacity: 0.06;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: radial-gradient(
+			55% 70% at 85% 20%,
+			color-mix(
+					in srgb,
+					var(--wp--preset--color--evergreen) 16%,
+					transparent
+				)
+				0%,
+			transparent 70%
+		),
+		linear-gradient(
+			to right,
+			var(--wp--preset--color--ink) 1px,
+			transparent 1px
+		),
+		linear-gradient(
+			to bottom,
+			var(--wp--preset--color--ink) 1px,
+			transparent 1px
+		);
+	background-size:
+		auto,
+		72px 72px,
+		72px 72px;
+	opacity: 0.06;
+	mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		black 20%,
+		black 80%,
+		transparent
+	);
 }
 
 .venuestack-home-spaces__link a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 .venuestack-home-spaces__link a:hover,
 .venuestack-home-spaces__link a:focus {
-  color: var(--wp--preset--color--ember);
+	color: var(--wp--preset--color--ember);
 }
 
 .venuestack-home-space-card {
-  height: 100%;
+	height: 100%;
 }
 
 .venuestack-home-space-card .wp-block-post-featured-image {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
 }
 
 .venuestack-home-space-card .wp-block-post-featured-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s ease;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.7s ease;
 }
 
 .venuestack-home-space-card:hover .wp-block-post-featured-image img {
-  transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .venuestack-home-space-card .wp-block-post-title a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 .venuestack-home-space-card .wp-block-post-title a:hover {
-  color: var(--wp--preset--color--ember);
+	color: var(--wp--preset--color--ember);
 }
 
 /* Space-type badge: absolute overlay on the image */
 .venuestack-home-space-type {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: inline-flex;
-  margin: 0;
-  padding: 0.4rem 0.75rem;
-  font-family: var(--wp--preset--font-family--work-sans);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 1.2;
-  text-transform: uppercase;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	display: inline-flex;
+	margin: 0;
+	padding: 0.4rem 0.75rem;
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: 0.65rem;
+	font-weight: 600;
+	letter-spacing: 0.16em;
+	line-height: 1.2;
+	text-transform: uppercase;
 }
 
 .venuestack-home-space-type a {
-  color: inherit;
-  text-decoration: none;
-  pointer-events: none;
+	color: inherit;
+	text-decoration: none;
+	pointer-events: none;
 }
 
 .venuestack-home-space-type .wp-block-post-terms__separator {
-  display: none;
+	display: none;
 }
 
 .venuestack-home-space-card__media {
-  position: relative;
+	position: relative;
 }
 
 .venuestack-home-space-card .is-rate {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 .venuestack-home-space-meta,
 .venuestack-home-space-meta > .wp-block-group {
-  width: 100%;
+	width: 100%;
 }
 
 @media (max-width: 1100px) {
-  .venuestack-home-spaces-query .wp-block-post-template {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
+	.venuestack-home-spaces-query .wp-block-post-template {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
 }
 
 @media (max-width: 600px) {
-  .venuestack-home-spaces-query .wp-block-post-template {
-    grid-template-columns: 1fr !important;
-  }
+	.venuestack-home-spaces-query .wp-block-post-template {
+		grid-template-columns: 1fr !important;
+	}
 }
 
 /* Steps — decorative wash */
 .venuestack-home-steps::before {
-  content: '';
-  position: absolute;
-  inset-block: 0;
-  right: 0;
-  width: 50%;
-  pointer-events: none;
-  opacity: 0.12;
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--wp--preset--color--brass) 0,
-    var(--wp--preset--color--brass) 1px,
-    transparent 1px,
-    transparent 12px
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 20%,
-    black 80%,
-    transparent
-  );
+	content: "";
+	position: absolute;
+	inset-block: 0;
+	right: 0;
+	width: 50%;
+	pointer-events: none;
+	opacity: 0.12;
+	background-image: repeating-linear-gradient(
+		45deg,
+		var(--wp--preset--color--brass) 0,
+		var(--wp--preset--color--brass) 1px,
+		transparent 1px,
+		transparent 12px
+	);
+	mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		black 20%,
+		black 80%,
+		transparent
+	);
 }
 
 .venuestack-home-step__n {
-  display: block;
+	display: block;
 }
 
 /* CTA — decorative wash; outline hover uses global interactive.css */
 .venuestack-home-cta {
-  position: relative;
-  overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
 
 .venuestack-home-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(
-      70% 90% at 50% 115%,
-      color-mix(in srgb, var(--wp--preset--color--brass) 40%, transparent) 0%,
-      transparent 65%
-    ),
-    repeating-radial-gradient(
-      circle at 50% 118%,
-      color-mix(in srgb, var(--wp--preset--color--plaster) 14%, transparent) 0,
-      color-mix(in srgb, var(--wp--preset--color--plaster) 14%, transparent) 1px,
-      transparent 1px,
-      transparent 92px
-    );
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: radial-gradient(
+			70% 90% at 50% 115%,
+			color-mix(in srgb, var(--wp--preset--color--brass) 40%, transparent)
+				0%,
+			transparent 65%
+		),
+		repeating-radial-gradient(
+			circle at 50% 118%,
+			color-mix(
+					in srgb,
+					var(--wp--preset--color--plaster) 5%,
+					transparent
+				)
+				0,
+			color-mix(
+					in srgb,
+					var(--wp--preset--color--plaster) 0%,
+					transparent
+				)
+				1px,
+			transparent 1px,
+			transparent 92px
+		);
 }
 
 .venuestack-home-cta .wp-block-heading,
 .venuestack-home-cta p,
 .venuestack-home-cta .wp-block-buttons {
-  position: relative;
+	position: relative;
 }
 
 /* Reveal motion */
 .venuestack-home-reveal {
-  opacity: 1;
-  transform: none;
+	opacity: 1;
+	transform: none;
 }
 
 html.venuestack-reveal-enabled .venuestack-home-reveal {
-  opacity: 0;
-  transform: translateY(1.75rem);
+	opacity: 0;
+	transform: translateY(1.75rem);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.venuestack-reveal-enabled .venuestack-home-reveal {
-    opacity: 1;
-    transform: none;
-  }
+	html.venuestack-reveal-enabled .venuestack-home-reveal {
+		opacity: 1;
+		transform: none;
+	}
 
-  .venuestack-home-space-card .wp-block-post-featured-image img {
-    transition: none;
-  }
+	.venuestack-home-space-card .wp-block-post-featured-image img {
+		transition: none;
+	}
 }
 
 .editor-styles-wrapper .venuestack-home-reveal,
 .block-editor-iframe__body .venuestack-home-reveal,
 .block-editor-block-list__layout .venuestack-home-reveal {
-  opacity: 1 !important;
-  transform: none !important;
+	opacity: 1 !important;
+	transform: none !important;
 }

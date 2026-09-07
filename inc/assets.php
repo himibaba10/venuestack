@@ -39,6 +39,8 @@ function venuestack_enqueue_block_assets(): void
 	$load_single = $in_editor || is_singular( 'venue_space' );
 	$load_directory = $in_editor || is_post_type_archive( 'venue_space' );
 	$load_contact = $in_editor || is_page( 'contact' );
+	$load_order = $in_editor
+		|| ( function_exists( 'is_wc_endpoint_url' ) && is_wc_endpoint_url( 'order-received' ) );
 
 	if ( $load_home ) {
 		wp_enqueue_style(
@@ -71,6 +73,15 @@ function venuestack_enqueue_block_assets(): void
 		wp_enqueue_style(
 			'venuestack-contact',
 			$theme_uri . '/assets/css/contact.css',
+			array( 'venuestack-interactive' ),
+			VENUESTACK_VERSION
+		);
+	}
+
+	if ( $load_order ) {
+		wp_enqueue_style(
+			'venuestack-order-confirmation',
+			$theme_uri . '/assets/css/order-confirmation.css',
 			array( 'venuestack-interactive' ),
 			VENUESTACK_VERSION
 		);

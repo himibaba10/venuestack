@@ -1,0 +1,137 @@
+/**
+ * Order confirmation — atmospheric wash + summary cards.
+ */
+
+.venuestack-order-confirmation {
+	position: relative;
+	overflow: hidden;
+	background-color: var(--wp--preset--color--plaster);
+}
+
+.venuestack-order-confirmation::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	background-image: radial-gradient(
+			65% 55% at 12% 0%,
+			color-mix(in srgb, var(--wp--preset--color--brass) 22%, transparent)
+				0%,
+			transparent 70%
+		),
+		radial-gradient(
+			55% 60% at 92% 18%,
+			color-mix(
+					in srgb,
+					var(--wp--preset--color--evergreen) 14%,
+					transparent
+				)
+				0%,
+			transparent 68%
+		),
+		radial-gradient(
+			70% 50% at 50% 100%,
+			color-mix(in srgb, var(--wp--preset--color--stone) 55%, transparent)
+				0%,
+			transparent 70%
+		);
+}
+
+.venuestack-order-confirmation::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+	opacity: 0.12;
+	background-image: radial-gradient(
+		var(--wp--preset--color--brass) 1px,
+		transparent 1px
+	);
+	background-size: 22px 22px;
+	mask-image: linear-gradient(
+		to bottom,
+		transparent,
+		black 12%,
+		black 78%,
+		transparent
+	);
+}
+
+.venuestack-order-confirmation > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* Summary meta — each field as a surface card */
+.venuestack-order-confirmation .wc-block-order-confirmation-summary {
+	margin-block: var(--wp--preset--spacing--50);
+}
+
+.venuestack-order-confirmation .wc-block-order-confirmation-summary-list {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 0.75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.venuestack-order-confirmation .wc-block-order-confirmation-summary-list-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	margin: 0;
+	padding: 1rem 1.1rem;
+	background: var(--wp--preset--color--card);
+	border: 1px solid var(--wp--preset--color--rule);
+	border-radius: 0;
+	box-shadow: 0 1px 0
+		color-mix(in srgb, var(--wp--preset--color--ink) 4%, transparent);
+}
+
+.venuestack-order-confirmation
+	.wc-block-order-confirmation-summary-list-item__key {
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	color: var(--wp--preset--color--brass);
+}
+
+.venuestack-order-confirmation
+	.wc-block-order-confirmation-summary-list-item__value {
+	display: block;
+	font-family: var(--wp--preset--font-family--work-sans);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: 500;
+	line-height: 1.35;
+	color: var(--wp--preset--color--ink);
+	word-break: break-word;
+}
+
+.venuestack-order-confirmation
+	.wp-block-woocommerce-order-confirmation-status
+	h1 {
+	margin-block-end: var(--wp--preset--spacing--20);
+}
+
+@media (max-width: 900px) {
+	.venuestack-order-confirmation .wc-block-order-confirmation-summary-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.venuestack-order-confirmation .wc-block-order-confirmation-summary-list {
+		grid-template-columns: 1fr;
+	}
+
+	.venuestack-order-confirmation
+		.wc-block-order-confirmation-summary-list-item__key,
+	.venuestack-order-confirmation
+		.wc-block-order-confirmation-summary-list-item__value {
+		display: block;
+	}
+}

@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  * Transient key for aggregated homepage stats.
  */
 function venuestack_home_stats_transient_key(): string {
-	return 'venuestack_home_stats_v2';
+	return 'venuestack_home_stats';
 }
 
 /**

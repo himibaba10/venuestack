@@ -66,8 +66,9 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"align":"full","className":"venuestack-space-section venuestack-space-about","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"0"}},"backgroundColor":"stone","textColor":"ink","layout":{"type":"constrained","contentSize":"1200px","wideSize":"1200px"}} -->
-<div class="wp-block-group alignfull venuestack-space-section venuestack-space-about has-ink-color has-stone-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"align":"wide","className":"venuestack-space-section__inner","style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide venuestack-space-section__inner"><!-- wp:group {"className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained","contentSize":"42rem","justifyContent":"left"}} -->
+<div class="wp-block-group alignfull venuestack-space-section venuestack-space-about has-ink-color has-stone-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"align":"wide","className":"venuestack-space-about__columns venuestack-space-section__inner","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|50"}}}} -->
+<div class="wp-block-columns alignwide venuestack-space-about__columns venuestack-space-section__inner"><!-- wp:column {"width":"54%","className":"venuestack-space-about__copy"} -->
+<div class="wp-block-column venuestack-space-about__copy" style="flex-basis:54%"><!-- wp:group {"className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained","contentSize":"100%","justifyContent":"left"}} -->
 <div class="wp-block-group venuestack-home-reveal"><!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"brass"} -->
 <p class="is-style-eyebrow has-brass-color has-text-color">About this space</p>
 <!-- /wp:paragraph -->
@@ -77,33 +78,44 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:post-content {"align":"wide","className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained","contentSize":"42rem","justifyContent":"left"}} /-->
+<!-- wp:post-content {"className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"100%","justifyContent":"left"}} /-->
 
-<!-- wp:group {"align":"wide","className":"venuestack-space-amenities venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|30","margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"constrained","contentSize":"42rem","justifyContent":"left"}} -->
-<div class="wp-block-group alignwide venuestack-space-amenities venuestack-home-reveal" style="margin-top:var(--wp--preset--spacing--50)"><!-- wp:paragraph {"className":"is-style-label","style":{"spacing":{"margin":{"bottom":"5px"}}},"textColor":"muted"} -->
+<!-- wp:group {"className":"venuestack-space-amenities venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"constrained","contentSize":"100%","justifyContent":"left"}} -->
+<div class="wp-block-group venuestack-space-amenities venuestack-home-reveal" style="margin-top:var(--wp--preset--spacing--50)"><!-- wp:paragraph {"className":"is-style-label","style":{"spacing":{"margin":{"bottom":"5px"}}},"textColor":"muted"} -->
 <p class="is-style-label has-muted-color has-text-color" style="margin-bottom:5px">Amenities</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:post-terms {"term":"space_amenity","separator":"","className":"is-style-chips","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} /--></div>
 <!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- /wp:column -->
 
-<!-- wp:group {"metadata":{"patternName":"venuestack/space-cta","name":"Space CTA","description":"Full-bleed booking call-to-action band for a single venue space.","categories":["venuestack","call-to-action"]},"align":"full","className":"venuestack-space-section venuestack-space-cta","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"evergreen","textColor":"plaster","layout":{"type":"constrained","contentSize":"1200px"},"anchor":"book"} -->
-<div class="wp-block-group alignfull venuestack-space-section venuestack-space-cta has-plaster-color has-evergreen-background-color has-text-color has-background" id="book" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"align":"wide","className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"42rem","justifyContent":"left"}} -->
-<div class="wp-block-group alignwide venuestack-home-reveal"><!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"brass"} -->
+<!-- wp:column {"width":"46%","className":"venuestack-space-about__book","anchor":"book"} -->
+<div class="wp-block-column venuestack-space-about__book" style="flex-basis:46%" id="book"><!-- wp:group {"className":"venuestack-space-book-card venuestack-home-reveal","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"plaster","layout":{"type":"constrained"}} -->
+<div class="wp-block-group venuestack-space-book-card venuestack-home-reveal has-plaster-background-color has-background" style="padding-top:var(--wp--preset--spacing--40);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"brass"} -->
 <p class="is-style-eyebrow has-brass-color has-text-color">Reserve</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"className":"is-style-section","textColor":"plaster"} -->
-<h2 class="wp-block-heading is-style-section has-plaster-color has-text-color">Hold this room before the calendar fills.</h2>
+<!-- wp:heading {"level":3,"className":"is-style-card","textColor":"ink"} -->
+<h3 class="wp-block-heading is-style-card has-ink-color has-text-color">Hold this room</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"is-style-lede","textColor":"plaster-muted"} -->
-<p class="is-style-lede has-plaster-muted-color has-text-color">Confirm capacity and rate above, then start a booking. Soft holds and live checkout land next.</p>
+<!-- wp:venuestack/booking-panel /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"patternName":"venuestack/space-cta","name":"Space CTA","description":"Full-bleed booking call-to-action band for a single venue space.","categories":["venuestack","call-to-action"]},"align":"full","className":"venuestack-space-section venuestack-space-cta","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"evergreen","textColor":"plaster","layout":{"type":"constrained","contentSize":"28rem"}} -->
+<div class="wp-block-group alignfull venuestack-space-section venuestack-space-cta has-plaster-color has-evergreen-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"align":"full","className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"40rem"}} -->
+<div class="wp-block-group alignfull venuestack-home-reveal"><!-- wp:heading {"className":"is-style-section","style":{"typography":{"textAlign":"center"}},"textColor":"plaster"} -->
+<h2 class="wp-block-heading has-text-align-center is-style-section has-plaster-color has-text-color">Need a different room?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"is-style-lede","style":{"typography":{"textAlign":"center"}},"textColor":"plaster-muted"} -->
+<p class="has-text-align-center is-style-lede has-plaster-muted-color has-text-color">Browse every space or talk with the events team about packages.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+<!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)"><!-- wp:button {"backgroundColor":"brass","textColor":"plaster","className":"is-style-fill","style":{"border":{"radius":"0px"}}} -->
 <div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-plaster-color has-brass-background-color has-text-color has-background wp-element-button" href="/spaces/" style="border-radius:0px">Browse all spaces</a></div>
 <!-- /wp:button -->

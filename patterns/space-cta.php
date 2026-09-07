@@ -9,21 +9,17 @@
  * @package Venuestack
  */
 ?>
-<!-- wp:group {"align":"full","anchor":"book","className":"venuestack-space-section venuestack-space-cta","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"evergreen","textColor":"plaster","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-group alignfull venuestack-space-section venuestack-space-cta has-plaster-color has-evergreen-background-color has-text-color has-background" id="book" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"align":"wide","className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"42rem","justifyContent":"left"}} -->
-<div class="wp-block-group alignwide venuestack-home-reveal"><!-- wp:paragraph {"className":"is-style-eyebrow","textColor":"brass"} -->
-<p class="is-style-eyebrow has-brass-color has-text-color"><?php echo esc_html__( 'Reserve', 'venuestack' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"className":"is-style-section","textColor":"plaster"} -->
-<h2 class="wp-block-heading is-style-section has-plaster-color has-text-color"><?php echo esc_html__( 'Hold this room before the calendar fills.', 'venuestack' ); ?></h2>
+<!-- wp:group {"align":"full","className":"venuestack-space-section venuestack-space-cta","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"},"blockGap":"var:preset|spacing|30"}},"backgroundColor":"evergreen","textColor":"plaster","layout":{"type":"constrained","contentSize":"28rem"}} -->
+<div class="wp-block-group alignfull venuestack-space-section venuestack-space-cta has-plaster-color has-evergreen-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"align":"full","className":"venuestack-home-reveal","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"28rem"}} -->
+<div class="wp-block-group alignfull venuestack-home-reveal"><!-- wp:heading {"className":"is-style-section","style":{"typography":{"textAlign":"center"}},"textColor":"plaster"} -->
+<h2 class="wp-block-heading has-text-align-center is-style-section has-plaster-color has-text-color"><?php echo esc_html__( 'Need a different room?', 'venuestack' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"className":"is-style-lede","textColor":"plaster-muted"} -->
-<p class="is-style-lede has-plaster-muted-color has-text-color"><?php echo esc_html__( 'Confirm capacity and rate above, then start a booking. Soft holds and live checkout land next.', 'venuestack' ); ?></p>
+<!-- wp:paragraph {"className":"is-style-lede","style":{"typography":{"textAlign":"center"}},"textColor":"plaster-muted"} -->
+<p class="has-text-align-center is-style-lede has-plaster-muted-color has-text-color"><?php echo esc_html__( 'Browse every space or talk with the events team about packages.', 'venuestack' ); ?></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+<!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)"><!-- wp:button {"backgroundColor":"brass","textColor":"plaster","className":"is-style-fill","style":{"border":{"radius":"0px"}}} -->
 <div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-plaster-color has-brass-background-color has-text-color has-background wp-element-button" href="/spaces/" style="border-radius:0px"><?php echo esc_html__( 'Browse all spaces', 'venuestack' ); ?></a></div>
 <!-- /wp:button -->
